@@ -1,0 +1,248 @@
+/* Circular Dark Blue */
+
+/*Panel*/
+#panel {
+  background-color: rgba(20, 20, 20, 0.65);
+  margin: 4px;
+  border-radius: 50px;
+  border: 0px solid #aaaaaa;
+  height: 36px
+}
+
+#panel:overview {
+  background-color: rgba(20, 20, 20, 0.2);
+}
+
+#panel .panel-button {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 0px solid #888888;
+  margin: 3px;
+  transition-duration: 250ms;
+}
+ 
+#panel .clock {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 0px solid transparent;
+  transition-duration: 250ms;
+}
+ 
+#panel .panel-button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+ 
+#panel .panel-button:active {
+  background-color: #26425e;
+  box-shadow: none !important;
+}
+ 
+#panel .panel-button.clock-display:hover .clock {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+#panel .panel-button.clock-display:active .clock {
+  background-color: #26425e;
+  box-shadow: none !important;
+}
+
+.ripple-box{
+  background-color: rgba(38, 66, 94, 0.4);
+}
+
+
+/*Quick-Settings*/
+
+.quick-settings {
+  background-color: rgba(33, 33, 33, 0.95) !important;
+  border: none !important;
+}
+
+.quick-settings-system-item .icon-button {
+  background-color: rgba(180, 180, 180, 0.1);
+  box-shadow: none;
+  transition-duration: 250ms;
+}
+
+.quick-settings-system-item .icon-button:hover, .quick-slider .icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+
+
+.quick-toggle {
+  background-color: rgba(180, 180, 180, 0.1);
+  box-shadow: none;
+  transition-duration: 250ms;
+}
+
+.quick-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: none;
+}
+
+
+.quick-toggle:checked {
+  background-color: #26425e;
+}
+
+.quick-toggle:checked:hover {
+  background-color: #13385d;
+}
+
+
+
+.quick-toggle-menu-button {
+  background-color: rgba(180, 180, 180, 0.1);
+  transition-duration: 250ms;
+}
+
+.quick-toggle-menu-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+
+.quick-toggle-menu-button:checked {
+  background-color: #26425e;
+}
+
+.quick-toggle-menu-button:checked:hover {
+  background-color: #13385d;
+}
+
+
+.quick-toggle-separator{
+  width: 2px;
+  background-color: transparent;
+}
+
+
+.quick-toggle-menu {
+  background-color: rgba(100, 100, 100, 0.15);
+}
+
+.quick-toggle-menu .header .icon.active {
+  background-color: #26425e;
+}
+
+.quick-slider .icon-button{
+  background-color: transparent;
+  padding: 9px;
+  border-radius: 99px;
+  transition-duration: 250ms;
+}
+
+.quick-settings .slider {
+  color: white;
+  -slider-handle-radius: 9.5px;
+  -barlevel-height: 19px;
+  -barlevel-background-color: rgba(255, 255, 255, 0.1);
+  -barlevel-active-background-color: #26425e;
+  -barlevel-overdrive-color: #ED5F5D;
+  -barlevel-overdrive-separator-width: 1px;
+}
+
+
+.quick-settings .slider:hover{
+  color: #DDDDDD;
+}
+
+
+
+/*Calendar*/
+.popup-menu-content {
+  background-color: rgba(33, 33, 33, 0.95);
+  border: none !important;
+}
+
+.calendar-month-label {
+  background-color: transparent;
+}
+
+.calendar-day {
+  background-color: transparent;
+}
+
+.calendar-day:hover, .calendar-day:selected, .calendar-change-month-back:hover, .calendar-change-month-forward:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.calendar-today, .calendar-today:hover, .calendar-today:selected {
+  background-color: rgba(38, 66, 94, 0.8);
+}
+
+.calendar-day-heading {
+  background-color: transparent;
+}
+
+.calendar-change-month-back, .calendar-change-month-forward {
+  background-color: transparent;      
+}
+
+.weather-button {
+  background-color: transparent;
+}
+
+.weather-button:hover, .weather-button:selected {
+  background-color: rgba(60, 60, 60, 0.5);
+}
+
+
+
+/*Notifications*/
+.notification-banner {
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.message {
+  background-color: #313131;
+}
+
+.message:hover, .message:focus {
+  background-color: rgba(65, 65, 65, 1);
+}
+
+.message-header {
+  color: white;
+}
+
+.message-expand-button, .message-close-button, .message-action-bin {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.message-expand-button:hover, .message-close-button:hover {
+  background-color: rgba(255, 255, 255, 0.13);
+}
+
+
+
+/*Dash To Dock*/
+
+#dashtodockContainer.bottom #dash .dash-background {
+  padding: 10px 12px;  
+  border-radius: 999px !important;
+}
+
+
+#dash .dash-item-container .show-apps .overview-icon,
+#dash .dash-item-container .overview-tile .overview-icon,
+#dash .dash-item-container .grid-search-result .overview-icon {
+  border-radius: 22px !important;
+}
+
+
+#dash .dash-item-container .show-apps:hover .overview-icon,
+#dash .dash-item-container .overview-tile:hover .overview-icon,
+#dash .dash-item-container .grid-search-result:hover .overview-icon {
+  background-color: rgba(255, 255, 255, 1) !important;
+}
+
+#dashtodockContainer #dash StWidget.focused .app-grid-running-dot {
+  background-color: #2190a4 !important;
+}
+
+.app-grid-running-dot {
+  background-color: rgba(150, 150, 150, 1) !important;
+}
+
+

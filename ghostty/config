@@ -1,0 +1,45 @@
+#theme = "Cobalt2"
+theme = "catppuccin-mocha"
+
+#custom-shader = shaders/gears-and-belts.glsl
+#custom-shader = shaders/mnoise.glsl
+#custom-shader = shaders/sparks-from-fire.glsl
+#custom-shader = shaders/inside-the-matrix.glsl
+#custom-shader = shaders/water.glsl
+#custom-shader = shaders/in-game-crt.glsl
+
+shell-integration-features = no-cursor
+cursor-style = bar
+
+font-family = CaskaydiaCove Nerd Font
+font-size = 12
+font-feature = -calt, -liga, -dlig
+
+#background-opacity = 0.85
+#background = #1d1d1f
+#window-titlebar-background = #262629
+
+#background = #1e1e2e
+#window-titlebar-background = #28283d
+window-theme = ghostty
+
+# maximize = true
+
+selection-invert-fg-bg = true
+
+window-height = 40
+window-width = 140
+window-save-state = always
+#adw-toolbar-style = flat
+
+confirm-close-surface = false
+
+mouse-scroll-multiplier = 2
+
+keybind = ctrl+shift+r=reload_config
+
+keybind = ctrl+up=scroll_page_up
+keybind = ctrl+down=scroll_page_down
+keybind = ctrl+shift+left=unbind
+keybind = ctrl+shift+right=unbind
+

@@ -1,0 +1,10 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "CtrlAltLeft": "StartOfText",
+    "Alt-CtrlRight": "EndOfLine",
+    "CtrlDown": "ParagraphNext",
+    "CtrlUnderscore": "lua:comment.comment",
+    "CtrlUp": "ParagraphPrevious",
+ 	"Ctrl-Space": "command:tree",
+	"Ctrl-t": "command:fzf",
+}

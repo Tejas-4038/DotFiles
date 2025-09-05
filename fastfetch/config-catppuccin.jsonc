@@ -1,0 +1,103 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  
+  
+     "logo": {
+	"source": "/home/tejas/.config/fastfetch/logos/crest-catppuccin.png",
+    "type" : "kitty",
+    "width": 55,
+    "height": 15,
+    "padding": {"top": 1, "right": 2, "left": 2}
+  },
+  "display": {
+    "separator": "\u001b[1m   \u001b[0m",
+	"size" : {"binaryPrefix": "si"},
+    "color": {
+      "output": "38;5;4",
+      "separator": "38;5;9"
+    }
+  },
+  
+  "modules": [
+    
+    "break",
+
+     {
+    "type": "custom",
+    "format": "\u001b[1mtejas@fedora",
+    "outputColor": "38;5;10",
+    },
+        
+    {
+    "type": "uptime",
+    "key": " ",
+    "outputColor": "38;5;10"
+    },
+    
+    {
+    "type": "custom",
+    "format": "\u001B[1m----------------------------------------------",
+    "outputColor": "38;5;9"
+    },
+    
+
+    
+    "break",
+    
+    {
+    "type": "os",
+    "key": "󰣛 ",
+    "keyColor": "38;5;11",
+    "format": "{2} ({9}) {12}" 
+    },
+    
+    {
+    "type": "kernel",
+    "key": " ",
+    "keyColor": "38;5;11" 
+    },
+    
+    {
+    "type": "de",
+    "key": " ",
+    "keyColor": "38;5;11" 
+    },
+    
+    {
+    "type": "packages",
+    "key": "󰏖 ",
+    "keyColor": "38;5;11" 
+    },
+    
+    {
+    "type": "disk",
+    "key": " ",
+    "keyColor": "38;5;11" 
+    },
+    
+    /*{
+      "type": "gpu",
+      "format": "{1} {2}",
+      "key": " ",
+      "keyColor": "38;5;11" 
+    },*/
+    
+    {
+    "type": "wifi",
+    "key": " ",
+    "keyColor": "38;5;11", 
+    "format": "{4}  {7} {11}"
+    },
+    
+    "break",
+    "break",
+    
+    {
+    "type": "custom",
+    "format": "\u001b[38;5;8m  \u001b[38;5;1m  \u001b[38;5;2m  \u001b[38;5;3m  \u001b[38;5;4m  \u001b[38;5;5m  \u001b[38;5;6m  \u001b[38;5;7m"
+    }
+    //"colors"
+        
+  ]
+}
+

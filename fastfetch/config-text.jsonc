@@ -1,0 +1,115 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  
+  "keyColor": "yellow",
+  
+     "logo": {
+	"source": "/home/tejas/.config/fastfetch/logos/ascii-art2.txt",
+    "type": "file",
+    "padding": {
+        "top": 1,
+        "left": 7,
+        "right": 7
+        },
+    "position": "left",
+    "color": {
+      "1": "#cca900"
+    }
+  },
+"display": {
+    "color": {
+      "output": "#00b2d2",
+      "separator": "red"
+    },
+    /*"separator": "  ",*/
+    "separator": "\u001b[1m   \u001b[0m"
+    /*"key": {"type": "icon"}*/
+  },
+  
+  "modules": [
+    {
+    "type": "custom",
+    "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m"
+    },
+    
+    "break",
+    
+    {
+    "type": "custom",
+    "format": "\u001B[1mtejas@fedora",
+    "outputColor": "38;2;79;219;124",
+    },
+        
+    {
+    "type": "uptime",
+    "key": " ",
+    "keyColor": "38;2;79;219;124",
+    "outputColor": "#4fdb7c"
+    },
+    
+    {
+    "type": "custom",
+    "format": "\u001B[1m----------------------------------------------------------",
+    "outputColor": "red"
+    },
+    
+
+    
+    "break",
+    
+    {
+    "type": "os",
+    "key": "\ue7d9 ",
+    "keyColor": "38;2;204;169;0" 
+    },
+    
+    {
+    "type": "kernel",
+    "key": " ",
+    "keyColor": "38;2;204;169;0" 
+    },
+    
+    {
+    "type": "de",
+    "key": " ",
+    "keyColor": "38;2;204;169;0" 
+    },
+    
+    {
+    "type": "packages",
+    "key": "󰏖 ",
+    "keyColor": "38;2;204;169;0" 
+    },
+    
+    {
+    "type": "disk",
+    "key": " ",
+    "keyColor": "38;2;204;169;0" 
+    },
+    
+    /*{
+      "type": "gpu",
+      "format": "{3}",
+      "key": "󰘚 ",
+      "keyColor": "38;2;204;169;0" 
+    },*/
+    
+    {
+    "type": "wifi",
+    "key": " ",
+    "keyColor": "38;2;204;169;0", 
+    "format": "{4} <> {7}"
+    },
+    
+    "break",
+    "break",
+    
+    
+    {
+    "type": "custom",
+    "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[37m"
+    }
+    //"colors"
+        
+  ]
+}
