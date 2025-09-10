@@ -1,0 +1,16 @@
+[Unit]
+Description=Vicinae Desktop Launcher
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/local/bin/vicinae server
+Restart=on-failure
+RestartSec=5s
+Type=simple
+
+# Add Node.js from NVM to PATH
+Environment=PATH=%h/.nvm/versions/node/v22.19.0/bin:/usr/local/bin:/usr/bin:/bin:%h/.local/bin
+
+[Install]
+WantedBy=default.target
+
