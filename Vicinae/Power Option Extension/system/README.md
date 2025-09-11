@@ -1,10 +1,10 @@
 #Power Options Extension for Vicinae
 
 ```bash
-npm run dev         # Run Extension in dev mode
+npm install         # Install Node Modules
 ```
 
-
 ```bash
+npm run dev         # Run Extension in dev mode
 npm run build       # Install extension in ~/.local/share/vicinae/extensions
 ```
