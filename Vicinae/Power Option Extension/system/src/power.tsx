@@ -55,6 +55,30 @@ export default function Command() {
           </ActionPanel>
         }
       />
+      <List.Item
+        title="Lock"
+        icon={path.resolve(__dirname, "assets/lock.svg")}
+        actions={
+          <ActionPanel>
+            <Action
+              title="Lock"
+              onAction={() => runCommand("xdg-screensaver lock", "lock")}
+            />
+          </ActionPanel>
+        }
+      />
+      <List.Item
+        title="Suspend"
+        icon={path.resolve(__dirname, "assets/suspend.svg")}
+        actions={
+          <ActionPanel>
+            <Action
+              title="Suspend"
+              onAction={() => runCommand("systemctl suspend", "suspend")}
+            />
+          </ActionPanel>
+        }
+      />
     </List>
   );
 }
