@@ -1,0 +1,32 @@
+{
+  "$schema": "https://raw.githubusercontent.com/vicinaehq/vicinae/refs/heads/main/extra/schemas/extension.json",
+  "name": "firefox-search",
+  "title": "Firefox Search",
+  "description": "Extension to search query in Firefox",
+  "categories": [],
+  "license": "MIT",
+  "author": "tejas",
+  "contributors": [],
+  "pastContributors": [],
+  "icon": "extension_icon.png",
+  "commands": [
+    {
+      "name": "google",
+      "title": "google",
+      "subtitle": "Search with Default Search Engine",
+      "description": "Search with Default Search Engine",
+      "mode": "view"
+    }
+  ],
+  "preferences": [],
+  "scripts": {
+    "build": "vici build",
+    "dev": "vici develop"
+  },
+  "dependencies": {
+    "@vicinae/api": "^0.9.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
