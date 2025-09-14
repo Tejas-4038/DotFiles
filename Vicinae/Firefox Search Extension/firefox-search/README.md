@@ -1,4 +1,4 @@
-# Search Extension for Vicinae
+# Firefox Search Extension for Vicinae
 
 ```bash
 npm run dev         # Run Extension in dev mode
