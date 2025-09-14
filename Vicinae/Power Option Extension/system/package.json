@@ -8,7 +8,7 @@
   "author": "tejas",
   "contributors": [],
   "pastContributors": [],
-  "icon": "extension_icon.svg",
+  "icon": "extension_icon.png",
   "commands": [
     {
       "name": "power",

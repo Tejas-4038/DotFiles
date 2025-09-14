@@ -1,4 +1,4 @@
-# Update Extension for Vicinae
+# Speedtest Extension for Vicinae
 
 ```bash
 npm install         # Install Node Modules

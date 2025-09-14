@@ -1,4 +1,4 @@
-#Power Options Extension for Vicinae
+# Power Options Extension for Vicinae
 
 ```bash
 npm run dev         # Run Extension in dev mode
