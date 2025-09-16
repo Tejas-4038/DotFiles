@@ -4,7 +4,7 @@ import { exec } from "child_process";
 export default async function Command() {
   // Adjust Ghostty binary path if it’s different on your system.
   // `-e` tells Ghostty to execute the command in the shell.
-  const cmd = "ghostty -e 'sudo dnf update; exec zsh'";
+  const cmd = "ghostty -e zsh -c 'sudo dnf update; exec zsh'";
 
   exec(cmd, (error, stdout, stderr) => {
     if (error) {

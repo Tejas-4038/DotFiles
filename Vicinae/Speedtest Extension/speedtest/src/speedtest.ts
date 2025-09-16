@@ -4,7 +4,7 @@ import { exec } from "child_process";
 export default async function Command() {
   // Adjust Ghostty binary path if it’s different on your system.
   // `-e` tells Ghostty to execute the command in the shell.
-  const cmd = "ghostty -e 'speedtest-cli; exec zsh'";
+  const cmd = "ghostty -e zsh -c 'speedtest-cli; exec zsh'";
 
   exec(cmd, (error, stdout, stderr) => {
     if (error) {
