@@ -7,4 +7,6 @@
     "CtrlUp": "ParagraphPrevious",
  	"Ctrl-Space": "command:tree",
 	"Ctrl-t": "command:fzf",
+	"CtrlH": "DeleteWordLeft",
+	"CtrlDelete": "DeleteWordRight",
 }
