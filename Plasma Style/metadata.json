@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "tejasahuja4038@gmail.com",
+                "Name": "tejas"
+            }
+        ],
+        "Category": "",
+        "Description": "Mystical Blue Theme, modified from 'Ned for Plasma",
+        "EnabledByDefault": true,
+        "Id": "HoloDock",
+        "License": "LGPL",
+        "Name": "HoloDock",
+        "Version": "1.0"
+    },
+    "X-Plasma-API": "5.0"
+}
