@@ -1,0 +1,4 @@
+configuration {
+    modi: "drun,run,window,wifi:~/.config/rofi/net.sh";
+}
+@theme "~/.config/rofi/themes/catppuccin-mocha-blue"

@@ -24,7 +24,7 @@
 
      {
     "type": "custom",
-    "format": "\u001b[1mtejas@fedora",
+    "format": "\u001b[1mtejas@arch",
     "outputColor": "38;5;10",
     },
         
@@ -46,9 +46,9 @@
     
     {
     "type": "os",
-    "key": "󰣛 ",
+    "key": "󰣇 ",
     "keyColor": "38;5;11",
-    "format": "{2} ({9}) {12}" 
+    "format": "{2} {12}" 
     },
     
     {
@@ -59,7 +59,7 @@
     
     {
     "type": "de",
-    "key": " ",
+    "key": " ",
     "keyColor": "38;5;11" 
     },
     
@@ -94,7 +94,7 @@
     
     {
     "type": "custom",
-    "format": "\u001b[38;5;8m  \u001b[38;5;1m  \u001b[38;5;2m  \u001b[38;5;3m  \u001b[38;5;4m  \u001b[38;5;5m  \u001b[38;5;6m  \u001b[38;5;7m"
+    "format": "\u001b[38;5;8m  \u001b[38;5;1m  \u001b[38;5;2m  \u001b[38;5;3m  \u001b[38;5;4m  \u001b[38;5;5m  \u001b[38;5;6m  \u001b[38;5;7m "
     }
     //"colors"
         

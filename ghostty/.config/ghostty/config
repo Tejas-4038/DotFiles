@@ -1,5 +1,5 @@
 #theme = "Cobalt2"
-theme = "catppuccin-mocha"
+theme = "Catppuccin Mocha"
 
 #custom-shader = shaders/gears-and-belts.glsl
 #custom-shader = shaders/mnoise.glsl

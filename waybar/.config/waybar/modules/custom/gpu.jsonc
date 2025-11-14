@@ -1,0 +1,9 @@
+{
+	"custom/gpu": {
+		"exec": "~/.config/waybar/scripts/gpu.sh",
+		"interval": 1,
+		"return-type": "json",
+		"on-click": "kitty btop"
+	}
+
+}

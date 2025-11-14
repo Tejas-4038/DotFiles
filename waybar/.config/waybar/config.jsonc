@@ -1,0 +1,102 @@
+// -*- mode: jsonc -*-
+{
+    "height": 0, 
+    "spacing": 0,
+    "margin-top": 4,
+    "margin-bottom": 0,
+    "margin-left": 5,
+    "margin-right": 5,
+    "layer": "top",
+
+	"include": [
+		"~/.config/waybar/modules/custom/arch.jsonc",
+		"~/.config/waybar/modules/custom/dividers.jsonc",
+		"~/.config/waybar/modules/custom/gpu.jsonc",
+	],
+	
+    "modules-left": [
+		"custom/arch",
+		"custom/left_div#1",
+    	"hyprland/workspaces",
+    	"custom/right_div#1",
+    	"hyprland/window"
+        
+    ],
+    "modules-center": [
+		"custom/left_div#2",
+		"custom/gpu",
+		"custom/left_inv#1",
+		"custom/left_div#3",
+        "clock",
+        "custom/right_div#2",
+        "custom/right_inv#1",
+        "temperature",
+        "cpu",
+        "custom/right_div#3"
+       
+    ],
+    "modules-right": [
+
+    ],
+ 
+
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "active": "󰜋"
+    },
+    "persistent-workspaces": {
+    	"*": 5
+    },
+    "on-scroll-up": "hyprctl dispatch workspace +1",
+    "on-scroll-down": "hyprctl dispatch workspace -1",
+  },
+
+
+  "hyprland/window": {
+	"format": "{title}",
+  	"icon": false,
+  	"icon-size": 22,
+  	"max-length": 40,
+  	"on-click-middle": "hyprctl dispatch killactive",
+  },
+
+	"clock": {
+		"format": "{:%b %d | %I:%M %p}",
+		"tooltip-format": "{calendar}",
+			"calendar": {
+				"mode": "month",
+				"mode-mon-col": 6,
+				// "week-pos":
+				// "on-scroll":
+				"format": {
+					"months": "<span color='#fab387'><b>{}</b></span>",
+					"days": "<span color='#CDD6F4'>{}</span>",
+					"weekdays": "<span color='#f9e2af'><i>{}</i></span>",
+					"today": "<span color='#89B4FA'><b><u>{}</u></b></span>"
+				}
+			},
+			"actions": {
+				"on-click": "mode"
+				// "on-click-middle":
+				// "on-click-right":
+				// "on-scroll-up":
+				// "on-scroll-down":
+			}
+	},
+
+	"temperature": {
+		"hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+		"interval": 1,
+		"on-click": "kitty btop",
+		"format": "{temperatureC}°C | "
+	},
+
+	"cpu": {
+		"interval": 1,
+		"on-click": "kitty btop",
+		"format": "{usage}%  ❮ CPU"
+	}
+}

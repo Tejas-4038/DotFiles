@@ -9,4 +9,6 @@
 	"Ctrl-t": "command:fzf",
 	"CtrlH": "DeleteWordLeft",
 	"CtrlDelete": "DeleteWordRight",
+	"CtrlShiftRight": "SelectWordRight",
+	"CtrlShiftLeft":  "SelectWordLeft",
 }
