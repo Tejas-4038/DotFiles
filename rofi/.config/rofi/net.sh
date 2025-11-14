@@ -3,6 +3,7 @@
 SESSION_TYPE="$XDG_SESSION_TYPE"
 ENABLED_COLOR="#A3BE8C"
 DISABLED_COLOR="#D35F5E"
+HIGHLIGHT_COLOR="#a6e3a1"
 SIGNAL_ICONS=("󰤟 " "󰤢 " "󰤥 " "󰤨 ")
 SECURED_SIGNAL_ICONS=("󰤡 " "󰤤 " "󰤧 " "󰤪 ")
 WIFI_CONNECTED_ICON=" "
@@ -28,10 +29,12 @@ manage_wifi() {
         fi
 
         local formatted="$signal_icon $ssid"
+
         if [[ "$in_use" =~ \* ]]; then
             active_ssid="$ssid"
-            formatted="$WIFI_CONNECTED_ICON $formatted"
+            formatted="<span foreground='$HIGHLIGHT_COLOR'>$WIFI_CONNECTED_ICON $formatted</span>"
         fi
+
         ssids+=("$ssid")
         formatted_ssids+=("$formatted")
     done < /tmp/wifi_list.txt
@@ -43,7 +46,8 @@ manage_wifi() {
 
     formatted_list=$(printf "%s" "$formatted_list")
 
-    local chosen_network=$(echo -e "$formatted_list" | rofi -dmenu -i -selected-row 1 -p "Wi-Fi SSID: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
+    local chosen_network=$(echo -e "$formatted_list" | rofi -dmenu -markup-rows -i -selected-row 1 -p "Wi-Fi SSID: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
+
     local ssid_index=-1
     for i in "${!formatted_ssids[@]}"; do
         if [[ "${formatted_ssids[$i]}" == "$chosen_network" ]]; then
@@ -66,6 +70,7 @@ manage_wifi() {
         fi
 
         action=$(echo -e "$action\n  Forget" | rofi -dmenu -p "Action: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
+
         case $action in
             "󰸋  Connect")
                 local success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
@@ -90,21 +95,18 @@ manage_wifi() {
 }
 
 main_menu() {
-    ## Ensure NetworkManager is running
     if ! pgrep -x "NetworkManager" > /dev/null; then
         echo -n "Root Password: "
         read -s password
         echo "$password" | sudo -S systemctl start NetworkManager
     fi
 
-    ## Check Wi-Fi radio status
     local wifi_status=$(nmcli -fields WIFI g)
     if [[ "$wifi_status" =~ "disabled" ]]; then
         nmcli radio wifi on
-        sleep 1
+        sleep 0.1
     fi
 
-    ## Directly open Manage Wi-Fi
     manage_wifi
 }
 

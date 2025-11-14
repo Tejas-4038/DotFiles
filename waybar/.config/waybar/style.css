@@ -12,16 +12,15 @@
 
 /*---Waybar----*/
 #waybar {
-	background-color: @mantle;
-	border-radius: 8px;
+	background-color: @base;
+	border-radius: 0px;
 }
 
 /*---Waybar-Box----*/
-/*#waybar > box {
+#waybar > box {
 	margin: 4px;
-	background-color: @base;
-	border-radius: 12px;
-}*/
+	background-color: transparent;
+}
 
 /*---Fonts----*/
 * {
@@ -29,7 +28,17 @@
 	font-weight: bold;
 	font-size: 16px;
 	color: @text;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
+
+/*---Alignment----*/
+.module,
+#custom-left_inv,
+#custom-right_inv {
+	margin-bottom: -1px;
+}
+
 
 
 /*---------------------
@@ -40,13 +49,13 @@
 #custom-arch {
 	padding: 0px 12px 0px 12px;
 	background-color: transparent;
-	font-size: 24px;
+	font-size: 22px;
 }
 
 /*---Div Workspaces----*/
 #custom-left_div.1, #custom-right_div.1 {
 	color: @surface;
-	font-size: 26px;
+	font-size: 22px;
 }
 
 /*---Workspaces----*/
@@ -65,39 +74,81 @@
 
 /*---Windows----*/
 #window {
-	margin-left: 10px;
+	margin-left: 14px;
 }
+
+
 
 /*---------------------
 |    Modules Center   |
 ---------------------*/
-#custom-left_div.2, #custom-left_inv.1, #custom-right_div.3, #custom-right_inv.1 {
+
+/*---Div GPU & CPU----*/
+#custom-left_div.2, #custom-right_div.3, #custom-left_inv, #custom-right_inv {
 	color: @surface;
-	font-size: 28px;
+	font-size: 22px;
 }
 
+/*---GPU----*/
 #custom-gpu {
 	padding: 0px 10px;
 	background-color: @surface;
 }
 
+/*---Div Clock----*/
 #custom-left_div.3, #custom-right_div.2 {
 	color: @accent;
-	font-size: 28px;
+	font-size: 22px;
 }
 
+/*---Clock----*/
 #clock {
 	padding: 0px 10px;
 	background-color: @accent;
 	color: @mantle;
 }
 
+/*---CPU Temp----*/
 #temperature {
 	padding-left: 10px;
 	background-color: @surface;
 }
 
+/*---CPU Usage----*/
 #cpu {
 	padding-right: 10px;
 	background-color: @surface;
+}
+
+
+
+/*---------------------
+|    Modules Right    |
+---------------------*/
+
+/*---Media Player----*/
+#mpris {
+	margin-right: 14px;
+}
+
+/*---Div Tray----*/
+#custom-left_div.4, #custom-right_div.4 {
+	color: @surface;
+	font-size: 22px;
+}
+
+#network, #pulseaudio, #battery  {
+	padding: 0px 6px;
+	background-color: @surface;
+}
+
+#tray, #idle_inhibitor, #custom-clipboard, #custom-notifications {
+	padding: 0px 6px;
+	background-color: transparent;
+}
+
+#systray {
+	padding: 0px 8px 0px 4px;
+	background-color: transparent;
+	font-size: 22px;
 }

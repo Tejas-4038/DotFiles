@@ -1,19 +1,15 @@
 // -*- mode: jsonc -*-
 {
+/*----General----*/
     "height": 0, 
     "spacing": 0,
-    "margin-top": 4,
-    "margin-bottom": 0,
-    "margin-left": 5,
-    "margin-right": 5,
     "layer": "top",
 
 	"include": [
-		"~/.config/waybar/modules/custom/arch.jsonc",
 		"~/.config/waybar/modules/custom/dividers.jsonc",
-		"~/.config/waybar/modules/custom/gpu.jsonc",
 	],
-	
+
+/*----Layout----*/	
     "modules-left": [
 		"custom/arch",
 		"custom/left_div#1",
@@ -36,41 +32,65 @@
        
     ],
     "modules-right": [
-
+    	"mpris",
+    	"custom/left_div#4",
+    	"network",
+    	"pulseaudio",
+    	"battery",
+    	"custom/right_div#4",
+    	"group/systray"
     ],
- 
 
 
-  "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": "",
-      "active": "󰜋"
-    },
-    "persistent-workspaces": {
-    	"*": 5
-    },
-    "on-scroll-up": "hyprctl dispatch workspace +1",
-    "on-scroll-down": "hyprctl dispatch workspace -1",
-  },
+/*----Arch Logo----*/
+	"custom/arch": {
+		"format":"󰣇",
+		"on-click": "wlogout",
+		"tooltip": false
+	},
 
 
-  "hyprland/window": {
-	"format": "{title}",
-  	"icon": false,
-  	"icon-size": 22,
-  	"max-length": 40,
-  	"on-click-middle": "hyprctl dispatch killactive",
-  },
+/*----Workspaces----*/
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"format-icons": {
+     		"default": "",
+      		"active": "󰜋"
+    	},
+    	"persistent-workspaces": {
+    		"*": 5
+    	},
+    	"on-scroll-up": "hyprctl dispatch workspace +1",
+    	"on-scroll-down": "hyprctl dispatch workspace -1",
+		},
 
+
+/*----Window----*/
+	"hyprland/window": {
+		"format": "{title}",
+  		"icon": false,
+  		"icon-size": 22,
+  		"max-length": 40,
+  		"on-click-middle": "hyprctl dispatch killactive",
+  	},
+
+
+/*----GPU----*/
+	"custom/gpu": {
+		"exec": "~/.config/waybar/scripts/gpu.sh",
+		"interval": 1,
+		"return-type": "json",
+		"on-click": "kitty btop"
+	},
+
+
+/*----Clock----*/
 	"clock": {
 		"format": "{:%b %d | %I:%M %p}",
 		"tooltip-format": "{calendar}",
 			"calendar": {
 				"mode": "month",
 				"mode-mon-col": 6,
-				// "week-pos":
-				// "on-scroll":
 				"format": {
 					"months": "<span color='#fab387'><b>{}</b></span>",
 					"days": "<span color='#CDD6F4'>{}</span>",
@@ -80,13 +100,11 @@
 			},
 			"actions": {
 				"on-click": "mode"
-				// "on-click-middle":
-				// "on-click-right":
-				// "on-scroll-up":
-				// "on-scroll-down":
 			}
 	},
 
+
+/*----CPU Temp----*/
 	"temperature": {
 		"hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
 		"interval": 1,
@@ -94,9 +112,144 @@
 		"format": "{temperatureC}°C | "
 	},
 
+
+/*----CPU Usage----*/
 	"cpu": {
 		"interval": 1,
 		"on-click": "kitty btop",
 		"format": "{usage}%  ❮ CPU"
-	}
+	},
+
+
+/*----Media Player----*/
+	"mpris": {
+		"interval": 0,
+		"format": "{status_icon}  {title} - {artist}",
+		"format-paused": "<i>{status_icon}  {title} - {artist}</i>",
+		"status-icons": {
+			"paused": "",
+			"playing": "",
+		},
+
+	},
+
+
+/*----Wifi----*/
+	"network": {
+		"interval": 5,
+		"format": "󰤨",
+		"format-ethernet": "󰈀",
+		"format-wifi": "{icon}",
+		"format-disconnected": "󰤯",
+		"format-disabled": "󰤮",
+		"format-icons": [
+			"󰤟", "󰤢", "󰤥", "󰤨"
+		],
+		"on-click": "~/.config/rofi/net.sh",
+		"tooltip-format": "Gateway: {gwaddr}",
+		"tooltip-format-ethernet": "Interface: {ifname}",
+		"tooltip-format-wifi": "Network: {essid}\nIP Addr: {ipaddr}/{cidr}\nStrength: {signalStrength}%\nFrequency: {frequency} GHz",
+		"tooltip-format-disconnected": "Wi-Fi Disconnected",
+		"tooltip-format-disabled": "Wi-Fi Disabled"
+	},
+
+
+/*----Volume----*/
+	"pulseaudio": {
+		"format": " {icon} ",
+		"format-muted": " {icon} ",
+		"format-icons": {
+			"default": [ "", "", "" ],
+			"default-muted": "",
+			"headphone": "󰋋",
+			"headphone-muted": "󰟎",
+			"headset": "󰋎",
+			"headset-muted": "󰋐"
+		},
+		"on-click": "hyprctl dispatch exec '[float] pavucontrol -t 3'",
+		"on-click-middle": "swayosd-client --output-volume mute-toggle",
+		"on-scroll-up": "swayosd-client --output-volume +1",
+		"on-scroll-down": "swayosd-client --output-volume -1",
+		"tooltip-format": "Volume: {volume}%\n{desc}"
+
+	},
+
+
+/*----Battery----*/
+	"battery": {
+		"interval": 60,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon}",
+		"format-time": "{H} hr {M} min",
+		"format-icons": [
+			"󰂎", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"
+		],
+		"format-charging": "󰂄",
+		"tooltip-format": "Battery: {capacity}%\nDischarging: {time}",
+		"tooltip-format-charging": "Battery: {capacity}%\nCharging: {time}",
+		"on-click": "~/.config/rofi/bat.sh",
+		"events": {
+			"on-discharging-warning": "notify-send 'Battery Low (30%)' -i 'battery-020'; powerprofilesctl set power-saver",
+			"on-discharging-critical": "notify-send 'Battery Critical (15%)' -u critical -i 'battery-010'",
+		}
+	},
+
+	
+/*----Sys Tray Group----*/
+	"group/systray": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 500,
+			"children-class": "sys",
+        	"transition-left-to-right": false,		
+		},
+		"modules": [
+			"custom/menu",
+			"tray",
+			"idle_inhibitor",
+			"custom/clipboard",
+			"custom/notifications"
+		]
+	},
+
+	"custom/menu": {
+		"format": "  ",
+		"tooltip": false
+	},
+	
+/*----App Tray----*/
+	"tray": {
+		"icon-size": 18,
+		"spacing": 10,
+	},	
+
+
+/*----Idle Inhibitor----*/
+	"idle_inhibitor": {
+	    "format": "{icon}",
+	    "format-icons": {
+	        "activated": " ",
+	        "deactivated": " "
+	    }
+	},
+
+	
+/*----Clipboard----*/
+	"custom/clipboard": {
+		"format": "",
+		"on-click": "vicinae vicinae://extensions/vicinae/clipboard/history",
+		"tooltip": false
+	},
+
+
+/*----Notifications----*/
+	"custom/notifications": {
+		"format": "",
+		"on-click": "swaync-client -t",
+		"tooltip": false
+	},	
+
 }
