@@ -80,7 +80,7 @@
 		"exec": "~/.config/waybar/scripts/gpu.sh",
 		"interval": 1,
 		"return-type": "json",
-		"on-click": "kitty btop"
+		"on-click": "kitty btop &"
 	},
 
 
@@ -126,6 +126,7 @@
 		"interval": 0,
 		"format": "{status_icon}  {title} - {artist}",
 		"format-paused": "<i>{status_icon}  {title} - {artist}</i>",
+		"max-length": 50,
 		"status-icons": {
 			"paused": "",
 			"playing": "",

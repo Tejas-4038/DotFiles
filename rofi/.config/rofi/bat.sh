@@ -39,12 +39,12 @@ clean_choice=$(echo "$choice" | sed "s/$check//" | sed 's/[[:space:]]*$//')
 # Apply selected profile
 case "$clean_choice" in
     "󰓅  Performance")
-        powerprofilesctl set performance
+        powerprofilesctl set performance && notify-send "Performance" -i "battery-profile-performance"
         ;;
     "  Balanced")
-        powerprofilesctl set balanced
+        powerprofilesctl set balanced && notify-send "Balanced" -i "battery-profile-balanced"
         ;;
     "  Power Saver")
-        powerprofilesctl set power-saver
+        powerprofilesctl set power-saver && notify-send "Power Saver" -i "battery-profile-powersave"
         ;;
 esac
