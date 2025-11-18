@@ -45,7 +45,8 @@
 /*----Arch Logo----*/
 	"custom/arch": {
 		"format":"󰣇",
-		"on-click": "wlogout",
+		"on-click": "kitty",
+		"on-click-middle": "wlogout",
 		"tooltip": false
 	},
 
