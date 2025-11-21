@@ -45,7 +45,7 @@
 /*----Arch Logo----*/
 	"custom/arch": {
 		"format":"󰣇",
-		"on-click": "kitty",
+		"on-click": "kitty --hold yay",
 		"on-click-middle": "wlogout",
 		"tooltip": false
 	},
@@ -147,7 +147,8 @@
 		"format-icons": [
 			"󰤟", "󰤢", "󰤥", "󰤨"
 		],
-		"on-click": "~/.config/rofi/net.sh",
+		"on-click": "~/.config/waybar/scripts/wifi.sh",
+		"on-click-middle": "~/.config/waybar/scripts/wifi-toggle.sh",
 		"tooltip-format": "Gateway: {gwaddr}",
 		"tooltip-format-ethernet": "Interface: {ifname}",
 		"tooltip-format-wifi": "Network: {essid}\nIP Addr: {ipaddr}/{cidr}\nStrength: {signalStrength}%\nFrequency: {frequency} GHz",
@@ -192,7 +193,7 @@
 		"format-charging": "󰂄",
 		"tooltip-format": "Battery: {capacity}%\nDischarging: {time}",
 		"tooltip-format-charging": "Battery: {capacity}%\nCharging: {time}",
-		"on-click": "~/.config/rofi/bat.sh",
+		"on-click": "~/.config/waybar/scripts/power.sh",
 		"events": {
 			"on-discharging-warning": "notify-send 'Battery Low (30%)' -i 'battery-020'; powerprofilesctl set power-saver",
 			"on-discharging-critical": "notify-send 'Battery Critical (15%)' -u critical -i 'battery-010'",

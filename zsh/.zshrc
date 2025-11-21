@@ -47,7 +47,6 @@ alias ytvideo="yt-dlp -P ~/Videos"
 alias ytaudio="yt-dlp -x --audio-format mp3 -P ~/Audios"
 alias speedtest-cli="speedtest-cli --secure"
 alias autoremove='yay -Qdtq | yay -Rns -'
-alias network='~/.config/rofi/net.sh'
 #alias up="sudo dnf update"
 
 

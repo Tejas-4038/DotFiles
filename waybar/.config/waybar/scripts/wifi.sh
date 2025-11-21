@@ -15,6 +15,10 @@ manage_wifi() {
     local formatted_ssids=()
     local active_ssid=""
 
+    # Add the rescan button at the top
+    formatted_ssids+=("<span foreground='#f9e2af'>  Rescan Wi-Fi Networks</span>")
+    ssids+=("__rescan__")
+
     while IFS=: read -r in_use signal security ssid; do
         if [ -z "$ssid" ]; then continue; fi
 
@@ -46,8 +50,15 @@ manage_wifi() {
 
     formatted_list=$(printf "%s" "$formatted_list")
 
-    local chosen_network=$(echo -e "$formatted_list" | rofi -dmenu -markup-rows -i -selected-row 1 -p "Wi-Fi SSID: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
+    local chosen_network=$(echo -e "$formatted_list" | rofi -dmenu -markup-rows -i -p "Wi-Fi SSID: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
 
+    # User closed menu
+    if [ -z "$chosen_network" ]; then
+        rm /tmp/wifi_list.txt
+        return
+    fi
+
+    # Detect chosen index
     local ssid_index=-1
     for i in "${!formatted_ssids[@]}"; do
         if [[ "${formatted_ssids[$i]}" == "$chosen_network" ]]; then
@@ -58,41 +69,46 @@ manage_wifi() {
 
     local chosen_id="${ssids[$ssid_index]}"
 
-    if [ -z "$chosen_network" ]; then
-        rm /tmp/wifi_list.txt
+    # 🔄 Handle Rescan button
+    if [[ "$chosen_id" == "__rescan__" ]]; then
+        notify-send "Wi-Fi" "Scanning for networks…"
+        nmcli device wifi rescan
+        sleep 5
+        manage_wifi   # reload menu
         return
-    else
-        local action
-        if [[ "$chosen_id" == "$active_ssid" ]]; then
-            action="  Disconnect"
-        else
-            action="󰸋  Connect"
-        fi
-
-        action=$(echo -e "$action\n  Forget" | rofi -dmenu -p "Action: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
-
-        case $action in
-            "󰸋  Connect")
-                local success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
-                local saved_connections=$(nmcli -g NAME connection show)
-                if [[ $(echo "$saved_connections" | grep -Fx "$chosen_id") ]]; then
-                    nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
-                else
-                    local wifi_password=$(rofi -dmenu -p "Password: " -password -theme ~/.config/rofi/themes/wifi-theme.rasi)
-                    nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
-                fi
-                ;;
-            "  Disconnect")
-                nmcli device disconnect wlan0 && notify-send "Disconnected" "You have been disconnected from $chosen_id."
-                ;;
-            "  Forget")
-                nmcli connection delete id "$chosen_id" && notify-send "Forgotten" "The network $chosen_id has been forgotten."
-                ;;
-        esac
     fi
+
+    # Normal Wi-Fi logic continues ↓
+    if [[ "$chosen_id" == "$active_ssid" ]]; then
+        action="  Disconnect"
+    else
+        action="󰸋  Connect"
+    fi
+
+    action=$(echo -e "$action\n  Forget" | rofi -dmenu -p "Action: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
+
+    case $action in
+        "󰸋  Connect")
+            local success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
+            local saved_connections=$(nmcli -g NAME connection show)
+            if [[ $(echo "$saved_connections" | grep -Fx "$chosen_id") ]]; then
+                nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
+            else
+                local wifi_password=$(rofi -dmenu -p "Password: " -password -theme ~/.config/rofi/themes/wifi-theme.rasi)
+                nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
+            fi
+            ;;
+        "  Disconnect")
+            nmcli device disconnect wlan0 && notify-send "Disconnected" "You have been disconnected from $chosen_id."
+            ;;
+        "  Forget")
+            nmcli connection delete id "$chosen_id" && notify-send "Forgotten" "The network $chosen_id has been forgotten."
+            ;;
+    esac
 
     rm /tmp/wifi_list.txt
 }
+
 
 main_menu() {
     if ! pgrep -x "NetworkManager" > /dev/null; then
