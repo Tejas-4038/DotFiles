@@ -16,5 +16,5 @@ vram_total="$(nvidia-smi --query-gpu=memory.total --format=csv,noheader | tr -d 
 tooltip="Power: ${power}W | VRAM: ${vram_used}/${vram_total} MiB"
 
 # Output JSON for Waybar
-printf '{"text": "GPU ❯  %s%% | %s°C", "tooltip": "%s", "class": "gpu"}\n' \
+printf '{"text": " %s%%   %s°C", "tooltip": "%s", "class": "gpu"}\n' \
   "$usage" "$temp" "$tooltip"

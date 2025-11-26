@@ -4,6 +4,10 @@
     "height": 0, 
     "spacing": 0,
     "layer": "top",
+//	"margin-top": 4,
+//	"margin-left": 4,
+//	"margin-right": 4,
+//	"margin-bottom": 0,
 
 	"include": [
 		"~/.config/waybar/modules/custom/dividers.jsonc",
@@ -12,32 +16,29 @@
 /*----Layout----*/	
     "modules-left": [
 		"custom/arch",
-		"custom/left_div#1",
+		"custom/div#1",
     	"hyprland/workspaces",
-    	"custom/right_div#1",
+    	"custom/div#2",
+    	"custom/gpu",
+    	"custom/div#3",
+    	"cpu",
+    	"temperature",
+    	"custom/div#4",
     	"hyprland/window"
         
     ],
     "modules-center": [
-		"custom/left_div#2",
-		"custom/gpu",
-		"custom/left_inv#1",
-		"custom/left_div#3",
-        "clock",
-        "custom/right_div#2",
-        "custom/right_inv#1",
-        "temperature",
-        "cpu",
-        "custom/right_div#3"
-       
+        "clock", 
+        
     ],
+    
     "modules-right": [
-    	"mpris",
-    	"custom/left_div#4",
+    	"group/media",
+    	"custom/div#5",
     	"network",
     	"pulseaudio",
     	"battery",
-    	"custom/right_div#4",
+    	"custom/div#6",
     	"group/systray"
     ],
 
@@ -68,11 +69,16 @@
 
 /*----Window----*/
 	"hyprland/window": {
-		"format": "{title}",
+		"format": "{class}",
   		"icon": false,
   		"icon-size": 22,
   		"max-length": 40,
   		"on-click-middle": "hyprctl dispatch killactive",
+  		"rewrite": {
+  			"kitty": "terminal",
+  			"com.github.th_ch.youtube_music": "YT Music",
+  			"FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp"
+  		}
   	},
 
 
@@ -87,7 +93,7 @@
 
 /*----Clock----*/
 	"clock": {
-		"format": "{:%b %d | %I:%M %p}",
+		"format": "{:%A %I:%M %p}",
 		"tooltip-format": "{calendar}",
 			"calendar": {
 				"mode": "month",
@@ -110,7 +116,7 @@
 		"hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
 		"interval": 1,
 		"on-click": "kitty btop",
-		"format": "{temperatureC}°C | "
+		"format": "   {temperatureC}°C"
 	},
 
 
@@ -118,21 +124,61 @@
 	"cpu": {
 		"interval": 1,
 		"on-click": "kitty btop",
-		"format": "{usage}%  ❮ CPU"
+		"format": " {usage}%"
 	},
 
 
 /*----Media Player----*/
+	"group/media": {
+		"orientation": "horizontal",
+		"modules": [
+			"mpris",
+			"custom/previous",
+			"custom/play",
+			"custom/next"
+		]	
+	},
+	
 	"mpris": {
 		"interval": 0,
-		"format": "{status_icon}  {title} - {artist}",
-		"format-paused": "<i>{status_icon}  {title} - {artist}</i>",
-		"max-length": 50,
-		"status-icons": {
-			"paused": "",
-			"playing": "",
-		},
+		"format": "{player_icon} {title}",
+		"format-paused": "<i>{player_icon} {title}</i>",
+		"max-length": 40,
+		"on-click": "playerctl play-pause; pkill -RTMIN+8 waybar",
+     	"player-icons": {
+      		"default": "<span foreground='#cba6f7'>󰝚 </span>",
+      		"spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
+      		"firefox": "<span foreground='#f38ba8'>󰗃 </span>",
+      		"chromium": "<span foreground='#f38ba8'> </span>"
+     	},
 
+	},
+
+	"custom/play": {
+		"exec": "~/.config/waybar/scripts/play_pause.sh",
+		"tooltip": false,
+		"interval": 1,
+		"return-type": "text",
+		"signal": 8,
+		"on-click": "playerctl play-pause; pkill -RTMIN+8 waybar"
+	},
+	
+	"custom/previous": {
+		"exec": "~/.config/waybar/scripts/previous.sh",
+		"tooltip": false,
+		"interval": 1,
+		"return-type": "text",
+		"signal": 8,
+		"on-click": "playerctl previous; pkill -RTMIN+8 waybar"
+	},
+
+	"custom/next": {
+		"exec": "~/.config/waybar/scripts/next.sh",
+		"tooltip": false,
+		"interval": 1,
+		"return-type": "text",
+		"signal": 8,
+		"on-click": "playerctl next; pkill -RTMIN+8 waybar"
 	},
 
 

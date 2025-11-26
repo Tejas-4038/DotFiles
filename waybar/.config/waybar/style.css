@@ -8,12 +8,13 @@
 @define-color text #cdd6f4;
 @define-color mantle #181825;
 @define-color crust #11111b;
-@define-color surface #1e1e2e;
+@define-color surface transparent;
+@define-color div #6c7086;
 
 /*---Waybar----*/
 #waybar {
-	background-color: rgba(30, 30, 46, 0.6);
-	border-radius: 0px;
+	background-color: @base;
+	/*border-radius: 10px;*/
 }
 
 /*---Waybar-Box----*/
@@ -26,19 +27,16 @@
 * {
 	font-family: "CaskaydiaCove Nerd Font";
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 15px;
 	color: @text;
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
 
-/*---Alignment----*/
-.module,
-#custom-left_inv,
-#custom-right_inv {
-	margin-bottom: -1px;
+#custom-div {
+	color: @div;
+	padding: 0px 5px 0px 5px;
 }
-
 
 
 /*---------------------
@@ -47,21 +45,17 @@
 
 /*---Arch----*/
 #custom-arch {
-	padding: 0px 12px 0px 12px;
+	padding: 0px 8px 0px 8px;
 	background-color: transparent;
-	font-size: 22px;
+	font-size: 18px;
 }
 
-/*---Div Workspaces----*/
-#custom-left_div.1, #custom-right_div.1 {
-	color: @surface;
-	font-size: 22px;
-}
 
 /*---Workspaces----*/
 #workspaces {
 	padding-right: 5px;
 	background-color: @surface;
+	border-radius: 8px;
 }
 
 #workspaces button {
@@ -74,7 +68,7 @@
 
 /*---Windows----*/
 #window {
-	margin-left: 14px;
+	margin-left: 5px;
 }
 
 
@@ -83,41 +77,33 @@
 |    Modules Center   |
 ---------------------*/
 
-/*---Div GPU & CPU----*/
-#custom-left_div.2, #custom-right_div.3, #custom-left_inv, #custom-right_inv {
-	color: @surface;
-	font-size: 22px;
-}
 
 /*---GPU----*/
 #custom-gpu {
-	padding: 0px 10px;
+	padding: 0px 8px;
 	background-color: @surface;
-}
-
-/*---Div Clock----*/
-#custom-left_div.3, #custom-right_div.2 {
-	color: @accent;
-	font-size: 22px;
+	border-radius: 8px;
 }
 
 /*---Clock----*/
 #clock {
-	padding: 0px 10px;
-	background-color: @accent;
-	color: @mantle;
+	padding: 0px 5px;
+	background-color: @surface;
+	border-radius: 8px;
 }
 
 /*---CPU Temp----*/
 #temperature {
-	padding-left: 10px;
+	padding-right: 5px;
 	background-color: @surface;
+	border-radius: 0px 8px 8px 0px;
 }
 
 /*---CPU Usage----*/
 #cpu {
-	padding-right: 10px;
+	padding-left: 5px;
 	background-color: @surface;
+	border-radius: 8px 0px 0px 8px;
 }
 
 
@@ -132,12 +118,15 @@
 	margin-left: 14px;
 }
 
-/*---Div Tray----*/
-#custom-left_div.4, #custom-right_div.4 {
-	color: @surface;
-	font-size: 22px;
+#custom-play {
+	margin: 0px 8px 0px 8px;
 }
 
+#custom-previous, #custom-next {
+	font-size: 18px;
+}
+
+/*---Div Tray----*/
 #network, #pulseaudio, #battery  {
 	padding: 0px 6px;
 	background-color: @surface;

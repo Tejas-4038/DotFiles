@@ -24,7 +24,7 @@
 
      {
     "type": "custom",
-    "format": "\u001b[1mtejas@arch",
+    "format": "tejas@cachyos",
     "outputColor": "38;5;10",
     },
         
