@@ -10,20 +10,21 @@
 @define-color crust #11111b;
 @define-color surface transparent;
 @define-color div #6c7086;
+@define-color hover @accent;
 
-/*---Waybar----*/
+/*----Waybar----*/
 #waybar {
 	background-color: @base;
 	/*border-radius: 10px;*/
 }
 
-/*---Waybar-Box----*/
+/*----Waybar-Box----*/
 #waybar > box {
 	margin: 4px;
 	background-color: transparent;
 }
 
-/*---Fonts----*/
+/*----Fonts----*/
 * {
 	font-family: "CaskaydiaCove Nerd Font";
 	font-weight: bold;
@@ -32,10 +33,23 @@
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
-
+/*----Spacing----*/
 #custom-div {
 	color: @div;
 	padding: 0px 5px 0px 5px;
+}
+
+/*----Hover----*/
+#custom-arch:hover,
+#custom-gpu:hover,
+#cpu:hover, #temperature:hover,
+#clock:hover,
+#mpris:hover, #custom-play:hover, #custom-next:hover, #custom-previous:hover,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-notifications:hover, #custom-clipboard:hover, #idle_inhibitor:hover {
+	color: @hover;
 }
 
 
@@ -43,7 +57,7 @@
 |     Modules Left    |
 ---------------------*/
 
-/*---Arch----*/
+/*----Arch----*/
 #custom-arch {
 	padding: 0px 8px 0px 8px;
 	background-color: transparent;
@@ -51,7 +65,7 @@
 }
 
 
-/*---Workspaces----*/
+/*----Workspaces----*/
 #workspaces {
 	padding-right: 5px;
 	background-color: @surface;
@@ -66,7 +80,7 @@
 	color: @accent;
 }
 
-/*---Windows----*/
+/*----Windows----*/
 #window {
 	margin-left: 5px;
 }
@@ -78,28 +92,28 @@
 ---------------------*/
 
 
-/*---GPU----*/
+/*----GPU----*/
 #custom-gpu {
 	padding: 0px 8px;
 	background-color: @surface;
 	border-radius: 8px;
 }
 
-/*---Clock----*/
+/*----Clock----*/
 #clock {
 	padding: 0px 5px;
 	background-color: @surface;
 	border-radius: 8px;
 }
 
-/*---CPU Temp----*/
+/*----CPU Temp----*/
 #temperature {
 	padding-right: 5px;
 	background-color: @surface;
 	border-radius: 0px 8px 8px 0px;
 }
 
-/*---CPU Usage----*/
+/*----CPU Usage----*/
 #cpu {
 	padding-left: 5px;
 	background-color: @surface;
@@ -112,7 +126,7 @@
 |    Modules Right    |
 ---------------------*/
 
-/*---Media Player----*/
+/*----Media Player----*/
 #mpris {
 	margin-right: 14px;
 	margin-left: 14px;
@@ -126,7 +140,7 @@
 	font-size: 18px;
 }
 
-/*---Div Tray----*/
+/*----Sys Tray----*/
 #network, #pulseaudio, #battery  {
 	padding: 0px 6px;
 	background-color: @surface;
