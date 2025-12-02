@@ -131,6 +131,8 @@
 /*----Media Player----*/
 	"group/media": {
 		"orientation": "horizontal",
+		"on-scroll-up": true,
+		"on-scroll-down": true,
 		"modules": [
 			"mpris",
 			"custom/previous",
