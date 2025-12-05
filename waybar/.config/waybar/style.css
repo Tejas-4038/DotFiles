@@ -48,7 +48,7 @@
 #network:hover,
 #pulseaudio:hover,
 #battery:hover,
-#custom-notifications:hover, #custom-clipboard:hover, #idle_inhibitor:hover {
+#custom-menu:hover, #custom-clipboard:hover, #idle_inhibitor:hover {
 	color: @hover;
 }
 

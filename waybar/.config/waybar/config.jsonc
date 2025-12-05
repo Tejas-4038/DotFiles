@@ -261,13 +261,14 @@
 			"custom/menu",
 			"tray",
 			"idle_inhibitor",
-			"custom/clipboard",
-			"custom/notifications"
+			"custom/clipboard"
 		]
 	},
-
+	
+/*----Notifications----*/
 	"custom/menu": {
 		"format": "  ",
+		"on-click": "swaync-client -t",
 		"tooltip": false
 	},
 	
@@ -294,13 +295,5 @@
 		"on-click": "vicinae vicinae://extensions/vicinae/clipboard/history",
 		"tooltip": false
 	},
-
-
-/*----Notifications----*/
-	"custom/notifications": {
-		"format": "",
-		"on-click": "swaync-client -t",
-		"tooltip": false
-	},	
 
 }
