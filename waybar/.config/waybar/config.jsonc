@@ -142,17 +142,19 @@
 	},
 	
 	"mpris": {
-		"interval": 0,
+		"interval": 1,
 		"format": "{player_icon} {title}",
 		"format-paused": "<i>{player_icon} {title}</i>",
 		"max-length": 40,
 		"on-click": "playerctl play-pause; pkill -RTMIN+8 waybar",
+		"on-scroll-up": "playerctl volume 0.01+",
+		"on-scroll-down": "playerctl volume 0.01-",
      	"player-icons": {
       		"default": "<span foreground='#cba6f7'>󰝚 </span>",
       		"spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
       		"firefox": "<span foreground='#f38ba8'>󰗃 </span>",
-      		"chromium": "<span foreground='#f38ba8'> </span>"
-     	},
+      		"YoutubeMusic": "<span foreground='#f38ba8'> </span>"
+     	}
 
 	},
 
