@@ -48,7 +48,7 @@
 #network:hover,
 #pulseaudio:hover,
 #battery:hover,
-#custom-menu:hover, #custom-clipboard:hover, #idle_inhibitor:hover {
+#custom-menu:hover, #custom-clipboard:hover, #idle_inhibitor:hover, #custom-update:hover {
 	color: @hover;
 }
 
@@ -61,7 +61,7 @@
 #custom-arch {
 	padding: 0px 8px 0px 8px;
 	background-color: transparent;
-	font-size: 18px;
+	font-size: 17px;
 }
 
 
@@ -133,11 +133,17 @@
 }
 
 #custom-play {
-	margin: 0px 8px 0px 8px;
+	margin: 0px 9px;
 }
 
-#custom-previous, #custom-next {
+#custom-previous {
 	font-size: 18px;
+	margin: 0px 0px 0px 2px;
+}
+
+#custom-next {
+	font-size: 18px;
+	margin: 0px 6px 0px 0px;
 }
 
 /*----Sys Tray----*/
@@ -146,13 +152,17 @@
 	background-color: @surface;
 }
 
-#tray, #idle_inhibitor, #custom-clipboard, #custom-notifications {
-	padding: 0px 6px;
+#idle_inhibitor, #custom-clipboard, #custom-update {
+	padding: 0px 8px;
 	background-color: transparent;
 }
 
-#systray {
-	padding: 0px 8px 0px 4px;
+#tray {
+	padding: 0px 2px;
 	background-color: transparent;
-	font-size: 22px;
+}
+
+#custom-menu {
+	padding: 0px 5px 0px 0px;
+	background-color: transparent;
 }

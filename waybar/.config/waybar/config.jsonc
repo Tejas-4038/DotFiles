@@ -1,4 +1,3 @@
-// -*- mode: jsonc -*-
 {
 /*----General----*/
     "height": 0, 
@@ -45,8 +44,8 @@
 
 /*----Arch Logo----*/
 	"custom/arch": {
-		"format":"󰣇",
-		"on-click": "kitty --hold yay",
+		"format":"",
+		"on-click": "vicinae deeplink vicinae://extensions/vicinae/system/browse-apps",
 		"on-click-middle": "wlogout",
 		"tooltip": false
 	},
@@ -76,7 +75,7 @@
   		"on-click-middle": "hyprctl dispatch killactive",
   		"rewrite": {
   			"kitty": "terminal",
-  			"com.github.th_ch.youtube_music": "YT Music",
+  			"com.github.th_ch.youtube_music": "YouTube Music",
   			"FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp"
   		}
   	},
@@ -219,7 +218,7 @@
 			"headset": "󰋎",
 			"headset-muted": "󰋐"
 		},
-		"on-click": "hyprctl dispatch exec '[float] pavucontrol -t 3'",
+		"on-click": "pavucontrol -t 3",
 		"on-click-middle": "swayosd-client --output-volume mute-toggle",
 		"on-scroll-up": "swayosd-client --output-volume +1",
 		"on-scroll-down": "swayosd-client --output-volume -1",
@@ -263,6 +262,7 @@
 			"custom/menu",
 			"tray",
 			"idle_inhibitor",
+			"custom/update",
 			"custom/clipboard"
 		]
 	},
@@ -285,8 +285,8 @@
 	"idle_inhibitor": {
 	    "format": "{icon}",
 	    "format-icons": {
-	        "activated": " ",
-	        "deactivated": " "
+	        "activated": "󰈈",
+	        "deactivated": "󰈉"
 	    }
 	},
 
@@ -295,6 +295,13 @@
 	"custom/clipboard": {
 		"format": "",
 		"on-click": "vicinae vicinae://extensions/vicinae/clipboard/history",
+		"tooltip": false
+	},
+
+/*----Update----*/
+	"custom/update": {
+		"format": "",
+		"on-click": "kitty --hold yay",
 		"tooltip": false
 	},
 

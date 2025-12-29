@@ -3,9 +3,9 @@
 status=$(playerctl status 2>/dev/null)
 
 if [[ "$status" == "Playing" ]]; then
-    echo "󰏤"
+    echo ""
 elif [[ "$status" == "Paused" ]]; then
-    echo "󰐊"
+    echo ""
 else
     echo ""
 fi
