@@ -27,7 +27,7 @@
         
     ],
     "modules-center": [
-        "clock", 
+        "clock",
         
     ],
     
@@ -42,12 +42,23 @@
     ],
 
 
-/*----Arch Logo----*/
+/*----Arch Menu----*/
 	"custom/arch": {
 		"format":"",
-		"on-click": "vicinae deeplink vicinae://extensions/vicinae/system/browse-apps",
-		"on-click-middle": "wlogout",
-		"tooltip": false
+		"tooltip": false,
+		"menu": "on-click",
+		"menu-file": "~/.config/waybar/scripts/menu.xml",
+		"menu-actions": {
+			"about": "sh -c 'kitty -e --hold fastfetch --config ~/.config/fastfetch/config-catppuccin.jsonc >/dev/null 2>&1 & disown'",
+			"conf": "sh -c 'kitty -d ~/.config/hypr -e yazi >/dev/null 2>&1 & disown'",
+			"vicinae": "vicinae deeplink vicinae://extensions/vicinae/system/browse-apps",
+			"update": "sh -c 'kitty -e --hold yay >/dev/null 2>&1 & disown'",
+			"lock": "hyprlock",
+			"suspend": "systemctl suspend",
+			"shutdown": "shutdown",
+			"reboot": "reboot",
+			"logout": "hyprctl dispatch exit"
+		}
 	},
 
 
@@ -256,21 +267,21 @@
 		"drawer": {
 			"transition-duration": 500,
 			"children-class": "sys",
-        	"transition-left-to-right": false,		
+        	"transition-left-to-right": false,
+        	"click-to-reveal": true		
 		},
 		"modules": [
 			"custom/menu",
 			"tray",
 			"idle_inhibitor",
-			"custom/update",
-			"custom/clipboard"
+			"custom/clipboard",
+			"custom/notifications"
 		]
 	},
 	
 /*----Notifications----*/
 	"custom/menu": {
 		"format": "  ",
-		"on-click": "swaync-client -t",
 		"tooltip": false
 	},
 	
@@ -298,11 +309,22 @@
 		"tooltip": false
 	},
 
-/*----Update----*/
-	"custom/update": {
-		"format": "",
-		"on-click": "kitty --hold yay",
-		"tooltip": false
-	},
-
+/*----Notifications----*/
+  "custom/notifications": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󰂛",
+      "dnd-none": "󰂛",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-middle": "swaync-client -d -sw",
+	"escape": true
+  },
+  
 }
