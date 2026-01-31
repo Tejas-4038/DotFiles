@@ -49,10 +49,10 @@
 		"menu": "on-click",
 		"menu-file": "~/.config/waybar/scripts/menu.xml",
 		"menu-actions": {
-			"about": "sh -c 'kitty -e --hold fastfetch --config ~/.config/fastfetch/config-catppuccin.jsonc >/dev/null 2>&1 & disown'",
-			"conf": "sh -c 'kitty -d ~/.config/hypr -e yazi >/dev/null 2>&1 & disown'",
+			"about": "kitty --hold fastfetch --config ~/.config/fastfetch/config-catppuccin.jsonc >/dev/null 2>&1 & disown",
+			"conf": "~/.config/waybar/scripts/config.sh >/dev/null 2>&1 & disown",
 			"vicinae": "vicinae deeplink vicinae://extensions/vicinae/system/browse-apps",
-			"update": "sh -c 'kitty -e --hold yay >/dev/null 2>&1 & disown'",
+			"update": "kitty --hold yay >/dev/null 2>&1 & disown",
 			"lock": "hyprlock",
 			"suspend": "systemctl suspend",
 			"shutdown": "shutdown",

@@ -27,7 +27,7 @@ fi
 if [ "$current" = "power-saver" ]; then
     options+="<span foreground='#a6e3a1'>  Power Saver   $check</span>\n"
 else
-    options+="  Power Saver\n"
+    options+="  Power Saver"
 fi
 
 # Show menu

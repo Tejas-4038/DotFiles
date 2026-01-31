@@ -6,7 +6,6 @@ DISABLED_COLOR="#D35F5E"
 HIGHLIGHT_COLOR="#a6e3a1"
 SIGNAL_ICONS=("󰤟 " "󰤢 " "󰤥 " "󰤨 ")
 SECURED_SIGNAL_ICONS=("󰤡 " "󰤤 " "󰤧 " "󰤪 ")
-WIFI_CONNECTED_ICON=" "
 
 manage_wifi() {
     nmcli --terse --fields "IN-USE,SIGNAL,SECURITY,SSID" device wifi list > /tmp/wifi_list.txt
@@ -15,7 +14,6 @@ manage_wifi() {
     local formatted_ssids=()
     local active_ssid=""
 
-    # Add the rescan button at the top
     formatted_ssids+=("<span foreground='#f9e2af'>  Rescan Wi-Fi Networks</span>")
     ssids+=("__rescan__")
 
@@ -36,21 +34,15 @@ manage_wifi() {
 
         if [[ "$in_use" =~ \* ]]; then
             active_ssid="$ssid"
-            formatted="<span foreground='$HIGHLIGHT_COLOR'>$WIFI_CONNECTED_ICON $formatted</span>"
+            formatted="<span foreground='$HIGHLIGHT_COLOR'>$formatted</span>"
         fi
 
         ssids+=("$ssid")
         formatted_ssids+=("$formatted")
     done < /tmp/wifi_list.txt
 
-    local formatted_list=""
-    for formatted_ssid in "${formatted_ssids[@]}"; do
-        formatted_list+="$formatted_ssid\n"
-    done
-
-    formatted_list=$(printf "%s" "$formatted_list")
-
-    local chosen_network=$(echo -e "$formatted_list" | rofi -dmenu -markup-rows -i -p "Wi-Fi SSID: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
+    local chosen_network
+    chosen_network=$(printf "%s\n" "${formatted_ssids[@]}" | rofi -dmenu -markup-rows -i -p "Wi-Fi SSID: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
 
     # User closed menu
     if [ -z "$chosen_network" ]; then
@@ -74,11 +66,10 @@ manage_wifi() {
         notify-send "Wi-Fi" "Scanning for networks…"
         nmcli device wifi rescan
         sleep 5
-        manage_wifi   # reload menu
+        manage_wifi
         return
     fi
 
-    # Normal Wi-Fi logic continues ↓
     if [[ "$chosen_id" == "$active_ssid" ]]; then
         action="  Disconnect"
     else
@@ -90,25 +81,33 @@ manage_wifi() {
     case $action in
         "󰸋  Connect")
             local success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
-            local saved_connections=$(nmcli -g NAME connection show)
+            local saved_connections
+            saved_connections=$(nmcli -g NAME connection show)
+
             if [[ $(echo "$saved_connections" | grep -Fx "$chosen_id") ]]; then
-                nmcli connection up id "$chosen_id" | grep "successfully" && notify-send "Connection Established" "$success_message"
+                nmcli connection up id "$chosen_id" | grep "successfully" \
+                    && notify-send "Connection Established" "$success_message"
             else
-                local wifi_password=$(rofi -dmenu -p "Password: " -password -theme ~/.config/rofi/themes/wifi-theme.rasi)
-                nmcli device wifi connect "$chosen_id" password "$wifi_password" | grep "successfully" && notify-send "Connection Established" "$success_message"
+                local wifi_password
+                wifi_password=$(rofi -dmenu -p "Password: " -password -theme ~/.config/rofi/themes/wifi-theme.rasi)
+
+                nmcli device wifi connect "$chosen_id" password "$wifi_password" \
+                    | grep "successfully" \
+                    && notify-send "Connection Established" "$success_message"
             fi
             ;;
         "  Disconnect")
-            nmcli device disconnect wlan0 && notify-send "Disconnected" "You have been disconnected from $chosen_id."
+            nmcli device disconnect wlan0 \
+                && notify-send "Disconnected" "You have been disconnected from $chosen_id."
             ;;
         "  Forget")
-            nmcli connection delete id "$chosen_id" && notify-send "Forgotten" "The network $chosen_id has been forgotten."
+            nmcli connection delete id "$chosen_id" \
+                && notify-send "Forgotten" "The network $chosen_id has been forgotten."
             ;;
     esac
 
     rm /tmp/wifi_list.txt
 }
-
 
 main_menu() {
     if ! pgrep -x "NetworkManager" > /dev/null; then
@@ -117,7 +116,8 @@ main_menu() {
         echo "$password" | sudo -S systemctl start NetworkManager
     fi
 
-    local wifi_status=$(nmcli -fields WIFI g)
+    local wifi_status
+    wifi_status=$(nmcli -fields WIFI g)
     if [[ "$wifi_status" =~ "disabled" ]]; then
         nmcli radio wifi on
         sleep 0.1
