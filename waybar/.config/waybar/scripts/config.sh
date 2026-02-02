@@ -1,27 +1,27 @@
 #!/bin/bash
-
-option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther"| rofi -dmenu -p "Select Config" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+back="<span foreground='#f9e2af'>Back</span>"
+option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -p "Select Config" -theme "~/.config/rofi/themes/wifi-theme.rasi")
 
 case "$option" in
-
 	"Hyprland")
-		kitty yazi ~/.config/hypr
+		EDITOR=micro kitty ~/.yazi.sh ~/.config/hypr
 		;;
-
 	"Waybar")
-		kitty yazi ~/.config/waybar
+		EDITOR=micro kitty ~/.yazi.sh ~/.config/waybar
 		;;
-
 	"Kitty")
 		kitty micro ~/.config/kitty/kitty.conf
 		;;
-
 	"Zsh")
 		kitty micro ~/.zshrc
 		;;
-
 	"Other")
-		kitty yazi ~/.config/
+		EDITOR=micro kitty ~/.yazi.sh ~/.config/
 		;;
-
+	"Git Repo")
+		kitty -d ~/DotFiles
+		;;
+	"$back")
+		~/.config/waybar/scripts/menu.sh
+		;;
 esac

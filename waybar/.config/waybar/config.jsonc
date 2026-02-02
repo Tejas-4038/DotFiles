@@ -46,19 +46,7 @@
 	"custom/arch": {
 		"format":"",
 		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "~/.config/waybar/scripts/menu.xml",
-		"menu-actions": {
-			"about": "kitty --hold fastfetch --config ~/.config/fastfetch/config-catppuccin.jsonc >/dev/null 2>&1 & disown",
-			"conf": "~/.config/waybar/scripts/config.sh >/dev/null 2>&1 & disown",
-			"vicinae": "vicinae deeplink vicinae://extensions/vicinae/system/browse-apps",
-			"update": "kitty --hold yay >/dev/null 2>&1 & disown",
-			"lock": "hyprlock",
-			"suspend": "systemctl suspend",
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"logout": "hyprctl dispatch exit"
-		}
+		"on-click": "~/.config/waybar/scripts/menu.sh"
 	},
 
 
