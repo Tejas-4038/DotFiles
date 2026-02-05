@@ -3,10 +3,11 @@
 about="  About This Computer"
 conf="  System Config"
 menu="  App Menu"
+kill="  Force Kill"
 update="  Update System"
 power="⏼  Power Options"
 
-item=$(printf "$about\n$conf\n$menu\n$update\n$power" | rofi -dmenu -i -p "Option" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -p "Option" -theme "~/.config/rofi/themes/wifi-theme.rasi")
 
 case "$item" in
 	"$about")
@@ -17,6 +18,9 @@ case "$item" in
 		;;
 	"$menu")
 		vicinae deeplink vicinae://extensions/vicinae/system/browse-apps
+		;;
+	"$kill")
+		hyprctl kill
 		;;
 	"$update")
 		kitty --hold yay
