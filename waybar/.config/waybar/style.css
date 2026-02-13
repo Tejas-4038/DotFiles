@@ -26,8 +26,8 @@
 
 /*----Fonts----*/
 * {
-	font-family: "CaskaydiaCove Nerd Font";
-	font-weight: bold;
+    font-family: "CaskaydiaCove Nerd Font";
+    font-weight: bold;
 	font-size: 15px;
 	color: @text;
 	padding-top: 0px;

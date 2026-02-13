@@ -1,6 +1,13 @@
 #!/bin/bash
 back="<span foreground='#f9e2af'>Back</span>"
-option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -p "Select Config" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Select Config" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+
+code=$?
+
+if [ "$code" -eq 10 ]; then
+	~/.config/waybar/scripts/menu.sh
+	exit
+fi
 
 case "$option" in
 	"Hyprland")
