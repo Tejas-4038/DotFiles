@@ -42,7 +42,7 @@ manage_wifi() {
     done < /tmp/wifi_list.txt
 
     local chosen_network
-    chosen_network=$(printf "%s\n" "${formatted_ssids[@]}" | rofi -dmenu -markup-rows -i -p "Wi-Fi SSID" -theme ~/.config/rofi/themes/wifi-theme.rasi)
+    chosen_network=$(printf "%s\n" "${formatted_ssids[@]}" | rofi -dmenu -markup-rows -i -p "Wi-Fi:" -theme ~/.config/rofi/themes/wifi-theme.rasi)
 
     # User closed menu
     if [ -z "$chosen_network" ]; then

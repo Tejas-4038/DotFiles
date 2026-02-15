@@ -48,7 +48,7 @@
 #network:hover,
 #pulseaudio:hover,
 #battery:hover,
-#custom-menu:hover, #custom-clipboard:hover, #idle_inhibitor:hover, #custom-notifications:hover {
+#custom-menu:hover, #custom-clipboard:hover, #idle_inhibitor:hover {
 	color: @hover;
 }
 
@@ -166,12 +166,6 @@ menuitem {
 #idle_inhibitor, #custom-clipboard {
 	padding: 0px 8px;
 	background-color: transparent;
-}
-
-#custom-notifications {
-	padding: 0px 4px;
-	background-color: transparent;
-	font-size: 15px;
 }
 
 #tray {

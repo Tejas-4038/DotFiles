@@ -38,7 +38,7 @@ trough {
 
 /* notifications */
 .notification-background {
-  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #45475a;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.8), inset 0 0 0 1px #89B4FA;
   border-radius: 12.6px;
   margin: 18px;
   background: alpha(#181825, 0.8);

@@ -1,6 +1,6 @@
 #!/bin/bash
 back="<span foreground='#f9e2af'>Back</span>"
-option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Select Config" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Config:" -theme "~/.config/rofi/themes/wifi-theme.rasi")
 
 code=$?
 
@@ -11,10 +11,10 @@ fi
 
 case "$option" in
 	"Hyprland")
-		EDITOR=micro kitty ~/.yazi.sh ~/.config/hypr
+		EDITOR=micro kitty zsh -ic "e ~/.config/hypr; exec zsh"
 		;;
 	"Waybar")
-		EDITOR=micro kitty ~/.yazi.sh ~/.config/waybar
+		EDITOR=micro kitty zsh -ic "e ~/.config/waybar; exec zsh"
 		;;
 	"Kitty")
 		kitty micro ~/.config/kitty/kitty.conf
@@ -23,7 +23,7 @@ case "$option" in
 		kitty micro ~/.zshrc
 		;;
 	"Other")
-		EDITOR=micro kitty ~/.yazi.sh ~/.config/
+		EDITOR=micro kitty zsh -ic "e ~/.config/; exec zsh"
 		;;
 	"Git Repo")
 		kitty -d ~/DotFiles

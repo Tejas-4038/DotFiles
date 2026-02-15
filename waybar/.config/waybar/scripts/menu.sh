@@ -7,7 +7,7 @@ kill="  Force Kill"
 update="  Update System"
 power="⏼  Power Options"
 
-item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -p "Option" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -p "Menu:" -theme "~/.config/rofi/themes/wifi-theme.rasi")
 
 case "$item" in
 	"$about")
