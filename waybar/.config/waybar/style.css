@@ -27,8 +27,8 @@
 /*----Fonts----*/
 * {
     font-family: "CaskaydiaCove Nerd Font";
-    font-weight: bold;
-	font-size: 15px;
+    font-weight: 700;
+	font-size: 15.8px;
 	color: @text;
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -66,26 +66,23 @@
 
 /*----Menu----*/
 menu {
-	padding: 2px;
-	background: alpha(@base, 0.95);
+	background: alpha(@base, 0.1);
 	color: @text;
-}
-
-menuitem {
-	margin: 0px;
 }
 
 
 /*----Workspaces----*/
 #workspaces {
-	padding-right: 5px;
+	padding: 0px;
 	background-color: @surface;
 	border-radius: 8px;
 }
 
 #workspaces button {
 	color: @text;
+	padding: 0px 5px;
 }
+
 
 #workspaces button.active label {
 	color: @accent;

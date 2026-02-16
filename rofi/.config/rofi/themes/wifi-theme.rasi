@@ -1,6 +1,6 @@
 * {
-    font: "CaskaydiaCove Nerd Font 12";
-    background-color: transparent;
+    font: "Google Sans Flex Medium 11.7";
+	background-color: transparent;
     text-color: #cdd6f4;
     border-color: #181825;
     selected-normal-foreground: #1e1e2e;

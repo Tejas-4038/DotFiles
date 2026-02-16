@@ -1,6 +1,6 @@
 #!/bin/bash
 back="<span foreground='#f9e2af'>Back</span>"
-option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Config:" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nGTK Settings\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Config:" -theme "~/.config/rofi/themes/wifi-theme.rasi")
 
 code=$?
 
@@ -21,6 +21,9 @@ case "$option" in
 		;;
 	"Zsh")
 		kitty micro ~/.zshrc
+		;;
+	"GTK Settings")
+		nwg-look
 		;;
 	"Other")
 		EDITOR=micro kitty zsh -ic "e ~/.config/; exec zsh"
