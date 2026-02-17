@@ -11,10 +11,10 @@ fi
 
 case "$option" in
 	"Hyprland")
-		EDITOR=micro kitty zsh -ic "e ~/.config/hypr; exec zsh"
+		kitty zsh -ic "e ~/.config/hypr; exec zsh"
 		;;
 	"Waybar")
-		EDITOR=micro kitty zsh -ic "e ~/.config/waybar; exec zsh"
+		kitty zsh -ic "e ~/.config/waybar; exec zsh"
 		;;
 	"Kitty")
 		kitty micro ~/.config/kitty/kitty.conf
@@ -26,7 +26,7 @@ case "$option" in
 		nwg-look
 		;;
 	"Other")
-		EDITOR=micro kitty zsh -ic "e ~/.config/; exec zsh"
+		kitty zsh -ic "e ~/.config/; exec zsh"
 		;;
 	"Git Repo")
 		kitty -d ~/DotFiles

@@ -68,12 +68,13 @@
 /*----Window----*/
 	"hyprland/window": {
 		"format": "{class}",
+		"tooltip-format":"{title}",
   		"icon": false,
   		"icon-size": 22,
   		"max-length": 40,
   		"on-click-middle": "hyprctl dispatch killactive",
   		"rewrite": {
-  			"kitty": "terminal",
+  			"kitty": "Terminal",
   			"com.github.th_ch.youtube_music": "YouTube Music",
   			"FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp"
   		}
