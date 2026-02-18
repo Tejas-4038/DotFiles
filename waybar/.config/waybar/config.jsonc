@@ -69,8 +69,6 @@
 	"hyprland/window": {
 		"format": "{class}",
 		"tooltip-format":"{title}",
-  		"icon": false,
-  		"icon-size": 22,
   		"max-length": 40,
   		"on-click-middle": "hyprctl dispatch killactive",
   		"rewrite": {
@@ -123,7 +121,7 @@
 	"cpu": {
 		"interval": 1,
 		"on-click": "kitty btop",
-		"format": " {usage}%"
+		"format": " {usage}% "
 	},
 
 

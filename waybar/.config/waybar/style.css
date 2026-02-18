@@ -54,6 +54,21 @@
 	color: @hover;
 }
 
+/*----Menu----*/
+menu {
+	background: alpha(@base, 0.1);
+	color: @text;
+}
+
+menu label {
+	font-family: "Google Sans Flex";
+	font-weight: 400;
+	padding: 4px;
+}
+/*----Menu----*/
+tooltip {
+	background-color: @base;
+}
 
 /*---------------------
 |     Modules Left    |
@@ -63,15 +78,8 @@
 #custom-arch {
 	padding: 0px 8px 0px 8px;
 	background-color: transparent;
-	font-size: 17px;
+	font-size: 18px;
 }
-
-/*----Menu----*/
-menu {
-	background: alpha(@base, 0.1);
-	color: @text;
-}
-
 
 /*----Workspaces----*/
 #workspaces {
@@ -93,40 +101,53 @@ menu {
 	color: @accent;
 }
 
-/*----Windows----*/
-#window {
-	margin-left: 5px;
-}
-
-
-
-/*---------------------
-|    Modules Center   |
----------------------*/
-
 
 /*----GPU----*/
 #custom-gpu {
 	padding: 0px 8px;
-	border-radius: 8px;
-}
-
-/*----Clock----*/
-#clock {
-	padding: 0px 5px;
-	border-radius: 8px;
-}
-
-/*----CPU Temp----*/
-#temperature {
-	padding-right: 5px;
-	border-radius: 0px 8px 8px 0px;
+	font-family: "Google Sans Flex";
+	font-weight: 500;
+	font-size: 15.4px;
 }
 
 /*----CPU Usage----*/
 #cpu {
 	padding-left: 5px;
-	border-radius: 8px 0px 0px 8px;
+	font-family: "Google Sans Flex";
+	font-weight: 500;
+	font-size: 15.4px;
+}
+
+/*----CPU Temp----*/
+#temperature {
+	padding-right: 5px;
+	font-family: "Google Sans Flex";
+	font-weight: 500;
+	font-size: 15.4px;
+}
+
+/*----Windows----*/
+#window {
+	margin-left: 4px;
+}
+
+#window label {
+	font-family: "Google Sans Flex";
+	font-weight: 500;
+	font-size: 15.4px;
+}
+
+/*---------------------
+|    Modules Center   |
+---------------------*/
+
+/*----Clock----*/
+#clock {
+	padding: 0px 5px;
+	border-radius: 8px;
+	font-family: "Google Sans Flex";
+	font-weight: 600;
+	font-size: 16px;
 }
 
 
@@ -137,8 +158,10 @@ menu {
 
 /*----Media Player----*/
 #mpris {
-	margin-right: 14px;
-	margin-left: 14px;
+	margin-right: 10px;
+	font-family: "Google Sans Flex";
+	font-weight: 500;
+	font-size: 15.4px;
 }
 
 #custom-play {
@@ -167,6 +190,7 @@ menu {
 #tray {
 	padding: 0px 2px;
 }
+
 
 #custom-menu {
 	padding: 0px 5px 0px 0px;
