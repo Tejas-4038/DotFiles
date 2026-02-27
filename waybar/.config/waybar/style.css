@@ -37,7 +37,7 @@
 /*----Spacing----*/
 #custom-div {
 	color: @div;
-	padding: 0px 5px 0px 5px;
+	padding: 0px 5px;
 }
 
 /*----Hover----*/
@@ -178,11 +178,24 @@ tooltip {
 	margin: 0px 6px 0px 0px;
 }
 
+
 /*----Sys Tray----*/
-#network, #pulseaudio, #battery  {
-	padding: 0px 6px;
+#network {
+	padding: 0px 10px 0px 6px;
 }
 
+#pulseaudio {
+	padding: 0px 10px;
+}
+
+#battery {
+	padding: 0px 6px 0px 10px;
+}
+
+#network, #pulseaudio, #battery  {
+}
+
+/*----Drawer----*/
 #idle_inhibitor, #custom-clipboard {
 	padding: 0px 8px;
 }
@@ -190,7 +203,6 @@ tooltip {
 #tray {
 	padding: 0px 2px;
 }
-
 
 #custom-menu {
 	padding: 0px 5px 0px 0px;

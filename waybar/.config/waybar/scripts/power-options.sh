@@ -7,7 +7,7 @@ suspend="  Suspend"
 lock="  Lock Screen"
 back="<span foreground='#f9e2af'>  Back</span>"
 
-power=$(printf "$shutdown\n$reboot\n$logout\n$suspend\n$lock\n$back" | rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Power Option:" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+power=$(printf "$shutdown\n$reboot\n$logout\n$suspend\n$lock\n$back" | rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Power Option:")
 
 code=$?
 

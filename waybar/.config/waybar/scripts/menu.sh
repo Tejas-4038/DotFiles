@@ -7,7 +7,7 @@ kill="  Force Kill"
 update="  Update System"
 power="⏼  Power Options"
 
-item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -p "Menu:" -theme "~/.config/rofi/themes/wifi-theme.rasi")
+item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -p "Menu:")
 
 case "$item" in
 	"$about")
@@ -26,7 +26,7 @@ case "$item" in
 		kitty --hold yay
 		;;
 	"$power")
-		~/.config/waybar/scripts/power_options.sh
+		~/.config/waybar/scripts/power-options.sh
 		;;
 esac
 

@@ -1,4 +1,3 @@
-
 fastfetch() {
   if [[ "$1" == "-d" ]]; then
     command fastfetch "${@:2}"
@@ -96,3 +95,5 @@ export EDITOR=micro
 #export PATH=$PATH:/home/tejas/.spicetify
 
 export "MICRO_TRUECOLOR=1"
+
+bindkey '^H' backward-kill-word

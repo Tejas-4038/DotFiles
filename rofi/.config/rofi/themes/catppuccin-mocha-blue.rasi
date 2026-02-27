@@ -1,0 +1,90 @@
+* {
+	font: "Google Sans Flex 11.7";
+	background-color: transparent;
+	text-color: #cdd6f4;
+	border-color: #181825;
+	selected-normal-foreground: #1e1e2e;
+	selected-normal-background: #89b4fa;
+	selected-active-background: #89b4fa;
+	selected-urgent-background: #f38ba8;
+	spacing: 6px;
+	padding: 8px;
+	border-radius: 12px;
+}
+
+window {
+	transparency: "real";
+	background-color: rgba(30, 30, 46, 0.85);
+	border: 2px;
+	border-color: #89b4fa;
+	border-radius: 16px;
+	width: 480px;
+	location: center;
+}
+
+mainbox {
+	spacing: 8px;
+    padding: 16px;
+}
+
+inputbar {
+	children: [ prompt, entry ];
+	padding: 8px 12px;
+	background-color: rgba(24, 24, 37, 0.5);
+	border-radius: 10px;
+	margin: 4px 0;
+}
+
+entry {
+	expand: true;
+	text-color: #cdd6f4;
+	placeholder: "Search...";
+	placeholder-color: #6c7086;
+}
+
+listview {
+	columns: 1;
+	scrollbar: false;
+	spacing: 6px;
+	fixed-height: false;
+	lines: 10;
+}
+
+element {
+	padding: 6px 10px;
+	border-radius: 10px;
+	orientation: horizontal;
+}
+
+element-icon {
+	size: 20px;
+	margin: 0 8px 0 0;
+}
+
+element-text {
+	vertical-align: 0.5;
+	text-color: #cdd6f4;
+	ellipsize: true;
+}
+
+element selected {
+	background-color: rgba(137, 180, 250, 0.12);
+	border: 1px;
+	border-color: #89b4fa;
+}
+
+element-text selected {
+	color: #89b4fa;
+}
+
+scrollbar {
+	handle-color: #585b70;
+	handle-width: 6px;
+	border-radius: 3px;
+}
+
+message {
+	background-color: rgba(24, 24, 37, 0.85);
+	border-radius: 8px;
+	padding: 10px;
+}

@@ -42,7 +42,7 @@ manage_wifi() {
     done < /tmp/wifi_list.txt
 
     local chosen_network
-    chosen_network=$(printf "%s\n" "${formatted_ssids[@]}" | rofi -dmenu -markup-rows -i -p "Wi-Fi:" -theme ~/.config/rofi/themes/wifi-theme.rasi)
+    chosen_network=$(printf "%s\n" "${formatted_ssids[@]}" | rofi -dmenu -markup-rows -i -p "Wi-Fi:")
 
     # User closed menu
     if [ -z "$chosen_network" ]; then
@@ -63,6 +63,7 @@ manage_wifi() {
 
     # 🔄 Handle Rescan button
     if [[ "$chosen_id" == "__rescan__" ]]; then
+        rm /tmp/wifi_list.txt
         notify-send "Wi-Fi" "Scanning for networks…"
         nmcli device wifi rescan
         sleep 5
@@ -76,7 +77,7 @@ manage_wifi() {
         action="󰸋  Connect"
     fi
 
-    action=$(echo -e "$action\n  Forget" | rofi -dmenu -p "Action: " -theme ~/.config/rofi/themes/wifi-theme.rasi)
+    action=$(echo -e "$action\n  Forget" | rofi -dmenu -p "Action: ")
 
     case $action in
         "󰸋  Connect")
@@ -89,7 +90,7 @@ manage_wifi() {
                     && notify-send "Connection Established" "$success_message"
             else
                 local wifi_password
-                wifi_password=$(rofi -dmenu -p "Password: " -password -theme ~/.config/rofi/themes/wifi-theme.rasi)
+                wifi_password=$(rofi -dmenu -p "Password: " -password)
 
                 nmcli device wifi connect "$chosen_id" password "$wifi_password" \
                     | grep "successfully" \

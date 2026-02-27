@@ -28,7 +28,7 @@ else
 fi
 
 # Show menu
-choice=$(echo -e "$options" | rofi -dmenu -markup-rows -p "Power Profile:" -theme ~/.config/rofi/themes/wifi-theme.rasi)
+choice=$(echo -e "$options" | rofi -dmenu -markup-rows -p "Power Profile:")
 
 case "$choice" in
     "󰓅  Performance")

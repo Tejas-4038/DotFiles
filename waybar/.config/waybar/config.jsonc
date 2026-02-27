@@ -74,7 +74,8 @@
   		"rewrite": {
   			"kitty": "Terminal",
   			"com.github.th_ch.youtube_music": "YouTube Music",
-  			"FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp"
+  			"FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp",
+  			"org.pulseaudio.pavucontrol": "Volume Control"
   		}
   	},
 
@@ -142,7 +143,8 @@
 		"interval": 1,
 		"format": "{player_icon} {title}",
 		"format-paused": "<i>{player_icon} {title}</i>",
-		"max-length": 40,
+		"max-length": 30,
+		"tooltip-format": "{dynamic}",
 		"on-click": "playerctl play-pause; pkill -RTMIN+8 waybar",
 		"on-scroll-up": "playerctl volume 0.01+",
 		"on-scroll-down": "playerctl volume 0.01-",
@@ -191,9 +193,7 @@
 		"format-wifi": "{icon}",
 		"format-disconnected": "󰤯",
 		"format-disabled": "󰤮",
-		"format-icons": [
-			"󰤟", "󰤢", "󰤥", "󰤨"
-		],
+		"format-icons": [ "󰤟", "󰤢", "󰤥", "󰤨" ],
 		"on-click": "~/.config/waybar/scripts/wifi.sh",
 		"on-click-middle": "~/.config/waybar/scripts/wifi-toggle.sh",
 		"tooltip-format": "Gateway: {gwaddr}",
@@ -206,11 +206,11 @@
 
 /*----Volume----*/
 	"pulseaudio": {
-		"format": " {icon} ",
-		"format-muted": " {icon} ",
+		"format": "{icon}",
+		"format-muted": "{icon}",
 		"format-icons": {
 			"default": [ "", "", "" ],
-			"default-muted": "",
+			"default-muted": "󰖁",
 			"headphone": "󰋋",
 			"headphone-muted": "󰟎",
 			"headset": "󰋎",
@@ -240,7 +240,7 @@
 		"format-charging": "󰂄",
 		"tooltip-format": "Battery: {capacity}%\nDischarging: {time}",
 		"tooltip-format-charging": "Battery: {capacity}%\nCharging: {time}",
-		"on-click": "~/.config/waybar/scripts/power.sh",
+		"on-click": "~/.config/waybar/scripts/power-profile.sh",
 		"events": {
 			"on-discharging-warning": "notify-send 'Battery Low (30%)' -i 'battery-020'; powerprofilesctl set power-saver",
 			"on-discharging-critical": "notify-send 'Battery Critical (15%)' -u critical -i 'battery-010'",
