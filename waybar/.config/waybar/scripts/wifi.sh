@@ -6,6 +6,7 @@ DISABLED_COLOR="#D35F5E"
 HIGHLIGHT_COLOR="#a6e3a1"
 SIGNAL_ICONS=("󰤟 " "󰤢 " "󰤥 " "󰤨 ")
 SECURED_SIGNAL_ICONS=("󰤡 " "󰤤 " "󰤧 " "󰤪 ")
+back="<span foreground='#f9e2af'>  Back</span>"
 
 manage_wifi() {
     nmcli --terse --fields "IN-USE,SIGNAL,SECURITY,SSID" device wifi list > /tmp/wifi_list.txt
@@ -72,12 +73,30 @@ manage_wifi() {
     fi
 
     if [[ "$chosen_id" == "$active_ssid" ]]; then
-        action="  Disconnect"
+        action="<span size='14pt'></span>  Disconnect"
     else
         action="󰸋  Connect"
     fi
 
-    action=$(echo -e "$action\n  Forget" | rofi -dmenu -p "Action: ")
+
+	autoconnect_status=$(nmcli -g connection.autoconnect connection show "$chosen_id")
+
+	if [[ "$autoconnect_status" = "yes" ]]; then
+		autoconnect="\n<span size='14pt'>󱧧</span>  Disable Autoconnect"
+	elif [[ "$autoconnect_status" = "no" ]]; then
+		autoconnect="\n<span size='14pt'>󰁪</span>  Enable Autoconnect"
+	else
+		autoconnect=""
+	fi
+		
+    action=$(echo -e "$action\n  Forget $autoconnect\n$back" | rofi -dmenu -kb-remove-char-back "" -kb-custom-1 "BackSpace" -format p -markup-rows -p "Action: ")
+
+	code=$?
+
+	if [ "$code" -eq 10 ]; then
+		manage_wifi
+		exit
+	fi
 
     case $action in
         "󰸋  Connect")
@@ -105,6 +124,17 @@ manage_wifi() {
             nmcli connection delete id "$chosen_id" \
                 && notify-send "Forgotten" "The network $chosen_id has been forgotten."
             ;;
+        "󱧧  Disable Autoconnect")
+        	nmcli connection modify "$chosen_id" connection.autoconnect no \
+                && notify-send "Disabled" "Autoconnect has been disabled for $chosen_id."
+			;;
+		"󰁪  Enable Autoconnect")
+        	nmcli connection modify "$chosen_id" connection.autoconnect yes \
+        		&& notify-send "Disabled" "Autoconnect has been enabled for $chosen_id"
+			;;
+        "  Back")
+         	manage_wifi
+         	;;
     esac
 
     rm /tmp/wifi_list.txt

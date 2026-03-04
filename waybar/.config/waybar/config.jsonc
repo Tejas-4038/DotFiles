@@ -55,7 +55,7 @@
 		"format": "{icon}",
 		"format-icons": {
      		"default": "",
-      		"active": ""
+      		"active": ""
     	},
     	"persistent-workspaces": {
     		"*": 5
@@ -266,7 +266,7 @@
 	
 /*----Menu/Notifications----*/
 	"custom/menu": {
-		"format": "  ",
+		"format": "", // (nf-fa-reorder)
 		"tooltip": false,
 		"on-click": "swaync-client -t -sw",
 		"on-click-middle": "swaync-client -d -sw",
