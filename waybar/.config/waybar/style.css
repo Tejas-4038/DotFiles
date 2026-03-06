@@ -56,10 +56,12 @@
 
 /*----Menu----*/
 menu {
-	background: alpha(@base, 0.1);
+	background-color: alpha(@base, 0.85);
 	color: @text;
 }
-
+decoration {
+	background-color: transparent;
+}
 menu label {
 	font-family: "Google Sans Flex";
 	font-size: 15.4px;
