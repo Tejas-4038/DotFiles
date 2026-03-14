@@ -9,7 +9,8 @@ SECURED_SIGNAL_ICONS=("󰤡 " "󰤤 " "󰤧 " "󰤪 ")
 back="<span foreground='#f9e2af'>  Back</span>"
 
 manage_wifi() {
-    nmcli --terse --fields "IN-USE,SIGNAL,SECURITY,SSID" device wifi list > /tmp/wifi_list.txt
+    nmcli --terse --fields "IN-USE,SIGNAL,SECURITY,SSID" device wifi list > /tmp/wifi_list_unorganized.txt
+    awk -F: '!seen[$4]++' /tmp/wifi_list_unorganized.txt > /tmp/wifi_list.txt
 
     local ssids=()
     local formatted_ssids=()
@@ -22,7 +23,9 @@ manage_wifi() {
         if [ -z "$ssid" ]; then continue; fi
 
         local signal_icon="${SIGNAL_ICONS[3]}"
-        local signal_level=$((signal / 25))
+        local signal_level=$(((signal - 1 )/ 25))
+        echo "level" $signal_level
+        echo "signal" $signal
         if [[ "$signal_level" -lt "${#SIGNAL_ICONS[@]}" ]]; then
             signal_icon="${SIGNAL_ICONS[$signal_level]}"
         fi
