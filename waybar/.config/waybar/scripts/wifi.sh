@@ -1,17 +1,34 @@
 #!/bin/bash
 
 SESSION_TYPE="$XDG_SESSION_TYPE"
-ENABLED_COLOR="#A3BE8C"
-DISABLED_COLOR="#D35F5E"
-HIGHLIGHT_COLOR="#a6e3a1"
 SIGNAL_ICONS=("󰤟 " "󰤢 " "󰤥 " "󰤨 ")
 SECURED_SIGNAL_ICONS=("󰤡 " "󰤤 " "󰤧 " "󰤪 ")
 back="<span foreground='#f9e2af'>  Back</span>"
 
 manage_wifi() {
     nmcli --terse --fields "IN-USE,SIGNAL,SECURITY,SSID" device wifi list > /tmp/wifi_list_unorganized.txt
-    awk -F: '!seen[$4]++' /tmp/wifi_list_unorganized.txt > /tmp/wifi_list.txt
 
+	awk -F: '
+	    FNR==NR { 
+	    	if (/^\*/) active[$4]=$0;
+	    	next 
+	    	}
+	    	
+	    $4 in active {
+	     	if (!seen[$4]++) print active[$4];
+	     	next
+	     	}
+	     	
+	    !seen[$4]++
+	    
+	' /tmp/wifi_list_unorganized.txt /tmp/wifi_list_unorganized.txt > /tmp/wifi_list.txt
+
+	local connectivity=$(nmcli networking connectivity)
+	local HIGHLIGHT_COLOR="#a6e3a1"
+	if [[ "$connectivity" == "limited" || "$connectivity" == "none" ]]; then
+		HIGHLIGHT_COLOR="#f38ba8"
+	fi
+			
     local ssids=()
     local formatted_ssids=()
     local active_ssid=""
@@ -24,8 +41,7 @@ manage_wifi() {
 
         local signal_icon="${SIGNAL_ICONS[3]}"
         local signal_level=$(((signal - 1 )/ 25))
-        echo "level" $signal_level
-        echo "signal" $signal
+        
         if [[ "$signal_level" -lt "${#SIGNAL_ICONS[@]}" ]]; then
             signal_icon="${SIGNAL_ICONS[$signal_level]}"
         fi
@@ -38,8 +54,9 @@ manage_wifi() {
 
         if [[ "$in_use" =~ \* ]]; then
             active_ssid="$ssid"
-            formatted="<span foreground='$HIGHLIGHT_COLOR'>$formatted</span>"
+			formatted="<span foreground='$HIGHLIGHT_COLOR'>$formatted</span>"
         fi
+
 
         ssids+=("$ssid")
         formatted_ssids+=("$formatted")
@@ -65,12 +82,11 @@ manage_wifi() {
 
     local chosen_id="${ssids[$ssid_index]}"
 
-    # 🔄 Handle Rescan button
     if [[ "$chosen_id" == "__rescan__" ]]; then
         rm /tmp/wifi_list.txt
         notify-send "Wi-Fi" "Scanning for networks…"
         nmcli device wifi rescan
-        sleep 5
+        sleep 4
         manage_wifi
         return
     fi
