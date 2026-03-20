@@ -11,7 +11,7 @@ item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -p
 
 case "$item" in
 	"$about")
-		kitty --hold fastfetch
+		hyprctl dispatch exec [ tag about ] "kitty sh -c 'fastfetch --config all.jsonc; read -s'"
 		;;
 	"$conf")
 		~/.config/waybar/scripts/config.sh
@@ -23,7 +23,7 @@ case "$item" in
 		hyprctl kill
 		;;
 	"$update")
-		kitty --hold yay
+		hyprctl dispatch exec [ tag update ] "kitty sh -c 'yay; read -sp \"Press Enter to exit\"'"
 		;;
 	"$power")
 		~/.config/waybar/scripts/power-options.sh
