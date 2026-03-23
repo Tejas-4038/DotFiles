@@ -210,6 +210,14 @@ Item {
             autoPaddingEnabled: false
         }
 
+    	Rectangle {
+       		anchors.fill: parent
+       		color: "black"
+        	opacity: root.state === "loginState" ? 0.35 : 0.15
+        	Behavior on opacity { NumberAnimation { duration: 400 } }
+    	}
+
+
         Item {
             id: screenContainer
             anchors.fill: parent
