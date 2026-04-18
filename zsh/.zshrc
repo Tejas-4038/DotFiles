@@ -34,11 +34,8 @@ export FZF_DEFAULT_COMMAND='fd --type f -H --exclude .git --exclude .wine --excl
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d -H --exclude .git --exclude .wine --exclude .cache'
 
+alias mv='mv -i'
 alias zshconf="micro ~/.zshrc"
-alias ohmyzsh="micro ~/.oh-my-zsh"
-#alias hyprconf="cd ~/.config/hypr/"
-#alias ghosttyconf="micro ~/.config/ghostty/config"
-
 alias c="clear"
 alias size="du -s --si"
 alias open='xdg-open'
@@ -46,8 +43,9 @@ alias yt-video="yt-dlp -P ~/Videos"
 alias yt-audio="yt-dlp -x --audio-format mp3 -P ~/Audios"
 alias yt-music="yt-dlp -x --audio-format mp3 -P ~/Music"
 alias yt-playlist='yt-dlp -x -o "%(playlist_index)s - %(title)s" --audio-format mp3 -P ~/Music'
-alias speedtest-cli="speedtest-cli --secure"
 alias autoremove='yay -Qdtq | yay -Rns -'
+alias reload-waybar='pkill -SIGUSR2 waybar'
+alias speedtest='cloudflare-speed-cli'
 #alias up="sudo dnf update"
 
 
@@ -99,3 +97,20 @@ export EDITOR=micro
 export "MICRO_TRUECOLOR=1"
 
 bindkey '^H' backward-kill-word
+
+# Man Page Color Env Vars
+export LESS_TERMCAP_mb=$'\e[1;34m'
+export LESS_TERMCAP_md=$'\e[1;34m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[1;30;44m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[4;1;32m'
+export LESS_TERMCAP_mr=$'\e[7m'
+export LESS_TERMCAP_mh=$'\e[2m'
+export LESS_TERMCAP_ZN=$'\e[74m'
+export LESS_TERMCAP_ZV=$'\e[75m'
+export LESS_TERMCAP_ZO=$'\e[73m'
+export LESS_TERMCAP_ZW=$'\e[75m'
+export MANPAGER='less'
+export GROFF_NO_SGR=1

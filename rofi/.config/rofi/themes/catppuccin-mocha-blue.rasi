@@ -1,5 +1,5 @@
 * {
-	font: "Google Sans Flex 11.7";
+	font: "Google Sans Flex 11.6";
 	background-color: transparent;
 	text-color: #cdd6f4;
 	border-color: #181825;
@@ -19,7 +19,6 @@ window {
 	border-color: #89b4fa;
 	border-radius: 16px;
 	width: 480px;
-	location: center;
 }
 
 mainbox {

@@ -107,7 +107,7 @@ tooltip {
 
 /*----GPU----*/
 #custom-gpu {
-	padding: 0px 8px;
+	padding: 0px 6px;
 	font-family: "Google Sans Flex";
 	font-weight: 400;
 	font-size: 15.4px;
@@ -115,7 +115,7 @@ tooltip {
 
 /*----CPU Usage----*/
 #cpu {
-	padding-left: 5px;
+	padding-left: 6px;
 	font-family: "Google Sans Flex";
 	font-weight: 400;
 	font-size: 15.4px;
@@ -123,7 +123,7 @@ tooltip {
 
 /*----CPU Temp----*/
 #temperature {
-	padding-right: 5px;
+	padding-right: 6px;
 	font-family: "Google Sans Flex";
 	font-weight: 400;
 	font-size: 15.4px;
@@ -195,8 +195,6 @@ tooltip {
 	padding: 0px 6px 0px 10px;
 }
 
-#network, #pulseaudio, #battery  {
-}
 
 /*----Drawer----*/
 #idle_inhibitor, #custom-clipboard {

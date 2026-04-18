@@ -17,13 +17,13 @@ case "$item" in
 		~/.config/waybar/scripts/config.sh
 		;;
 	"$menu")
-		vicinae deeplink vicinae://extensions/vicinae/system/browse-apps
+		vicinae vicinae://launch/system/browse-apps
 		;;
 	"$kill")
 		hyprctl kill
 		;;
 	"$update")
-		hyprctl dispatch exec [ tag update ] "kitty sh -c 'yay; read -sp \"Press Enter to exit\"'"
+		kitty sh -c "yay; read -sp $'\nPress Enter to exit'"
 		;;
 	"$power")
 		~/.config/waybar/scripts/power-options.sh

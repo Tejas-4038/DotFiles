@@ -89,6 +89,23 @@
 	},
 
 
+/*----CPU Usage----*/
+	"cpu": {
+		"interval": 1,
+		"on-click": "kitty btop",
+		"format": " {usage}%   "
+	},
+
+
+/*----CPU Temp----*/
+	"temperature": {
+		"hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
+		"interval": 1,
+		"on-click": "kitty btop",
+		"format": " {temperatureC}°C"
+	},
+
+
 /*----Clock----*/
 	"clock": {
 		"format": "{:%A %I:%M %p}",
@@ -106,23 +123,6 @@
 			"actions": {
 				"on-click": "mode"
 			}
-	},
-
-
-/*----CPU Temp----*/
-	"temperature": {
-		"hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
-		"interval": 1,
-		"on-click": "kitty btop",
-		"format": "   {temperatureC}°C"
-	},
-
-
-/*----CPU Usage----*/
-	"cpu": {
-		"interval": 1,
-		"on-click": "kitty btop",
-		"format": " {usage}% "
 	},
 
 
@@ -146,8 +146,8 @@
 		"max-length": 30,
 		"tooltip-format": "{dynamic}",
 		"on-click": "playerctl play-pause; pkill -RTMIN+8 waybar",
-		"on-scroll-up": "playerctl volume 0.01+",
-		"on-scroll-down": "playerctl volume 0.01-",
+		"on-scroll-up": "playerctl volume 0.02+",
+		"on-scroll-down": "playerctl volume 0.02-",
      	"player-icons": {
       		"default": "<span foreground='#cba6f7'>󰝚 </span>",
       		"spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
@@ -210,7 +210,7 @@
 		"format-muted": "{icon}",
 		"format-icons": {
 			"default": [ "", "", "" ],
-			"default-muted": "󰖁",
+			"default-muted": "",
 			"headphone": "󰋋",
 			"headphone-muted": "󰟎",
 			"headset": "󰋎",
@@ -292,7 +292,7 @@
 /*----Clipboard----*/
 	"custom/clipboard": {
 		"format": "",
-		"on-click": "vicinae vicinae://extensions/vicinae/clipboard/history",
+		"on-click": "vicinae vicinae://launch/clipboard/history",
 		"tooltip": false
 	},
   

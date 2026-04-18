@@ -40,7 +40,7 @@ manage_wifi() {
         if [ -z "$ssid" ]; then continue; fi
 
         local signal_icon="${SIGNAL_ICONS[3]}"
-        local signal_level=$(((signal - 1 )/ 25))
+        local signal_level=$(( (signal - 1 )/ 25))
         
         if [[ "$signal_level" -lt "${#SIGNAL_ICONS[@]}" ]]; then
             signal_icon="${SIGNAL_ICONS[$signal_level]}"
