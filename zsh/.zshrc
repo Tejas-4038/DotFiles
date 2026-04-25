@@ -12,10 +12,7 @@ if [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
   fastfetch
 fi
 
-eval "$(starship init zsh)"
-
-
-make_prompt() {
+prompt_starship() {
 	local surface="#313244"
 	local peach="#fab387"
 	local green="#a6e3a1"
@@ -42,8 +39,19 @@ make_prompt() {
 %(?.%F{$green}.%F{$red})❯ %f"
 }
 
-# shell native prompt
-#make_prompt
+prompt_simple() {
+	local teal="#94e2d5"
+	local green="#a6e3a1"
+	local red="#f38ba8"
+
+	PROMPT="
+%F{$teal}%~$f
+%(?.%F{#a6e3a1}.%F{#f38ba8})❯ %f"
+}
+
+# eval "$(starship init zsh)"
+# prompt_starship
+prompt_simple
 
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
