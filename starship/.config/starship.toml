@@ -49,7 +49,7 @@ maroon = "#eba0ac"
 peach = "#fab387"
 yellow = "#f9e2af"
 green = "#a6e3a1"
-cyan = "#97cbfa"
+cyan = "#97cce8"
 teal = "#89d1c5"
 sky = "#89dceb"
 sapphire = "#74c7ec"
@@ -179,5 +179,3 @@ disabled = false
 disabled = false
 success_symbol = '[❯](fg:green)'
 error_symbol = '[❯](fg:red)'
-
-

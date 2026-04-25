@@ -14,6 +14,37 @@ fi
 
 eval "$(starship init zsh)"
 
+
+make_prompt() {
+	local surface="#313244"
+	local peach="#fab387"
+	local green="#a6e3a1"
+	local cyan="#97cce8" # custom color (not in cattpuccin)
+	local blue="#89b4fa"
+	local pink="#f5c2e7"
+	local red="#f38ba8"
+
+	# username
+	PROMPT="
+%F{$surface}%f%K{$surface}󰣇 %n %k%F{$surface}"
+	# working directory
+	PROMPT+="%K{$peach} %~ %k%f%F{$peach}"
+	# green div
+	PROMPT+="%K{$green}%k%f%F{$green}"
+	# cyan div
+	PROMPT+="%K{$cyan}%k%f%F{$cyan}"
+	# blue div
+	PROMPT+="%K{$blue}%k%f%F{$blue}"
+	# time
+	PROMPT+="%K{$pink}%f%F{$surface}  %D{%I:%M %p} %f%k%F{$pink}%f"
+	# prompt char
+	PROMPT+="
+%(?.%F{$green}.%F{$red})❯ %f"
+}
+
+# shell native prompt
+#make_prompt
+
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
