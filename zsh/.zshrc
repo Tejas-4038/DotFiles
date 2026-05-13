@@ -1,4 +1,4 @@
-fastfetch() {
+f() {
   if [[ "$1" == "-d" ]]; then
     command fastfetch "${@:2}"
   elif [[ "$1" == "--config" ]]; then
@@ -9,7 +9,7 @@ fastfetch() {
 }
 
 if [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
-  fastfetch
+  f
 fi
 
 prompt_starship() {
@@ -80,8 +80,8 @@ alias size="du -s --si"
 alias open='xdg-open'
 alias yt-video="yt-dlp -P ~/Videos"
 alias yt-audio="yt-dlp -x --audio-format mp3 -P ~/Audios"
-alias yt-music="yt-dlp -x --audio-format mp3 -P ~/Music"
-alias yt-playlist='yt-dlp -x -o "%(playlist_index)s - %(title)s" --audio-format mp3 -P ~/Music'
+alias yt-music='yt-dlp -x --audio-format mp3 --embed-thumbnail --embed-metadata --output "%(title)s.%(ext)s" -P ~/Music'
+alias yt-playlist='yt-dlp -x -o "%(playlist_index)s - %(title)s" --embed-thumbnail --embed-metadata --audio-format mp3 -P ~/Music'
 alias autoremove='yay -Qdtq | yay -Rns -'
 alias reload-waybar='pkill -SIGUSR2 waybar'
 alias speedtest='cloudflare-speed-cli'

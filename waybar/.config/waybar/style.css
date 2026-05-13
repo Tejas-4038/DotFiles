@@ -11,6 +11,7 @@
 @define-color surface transparent;
 @define-color div #6c7086;
 @define-color hover @accent;
+@define-color red #f38ba8;
 @define-color hover_bg rgba(255, 255, 255, 0.04);
 
 /*----Waybar----*/
@@ -185,6 +186,11 @@ tooltip {
 /*----Sys Tray----*/
 #network {
 	padding: 0px 10px 0px 6px;
+}
+
+#custom-connectivity_status {
+	color: @red;
+	margin-left: -4px;
 }
 
 #pulseaudio {

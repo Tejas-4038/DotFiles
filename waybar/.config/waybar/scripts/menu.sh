@@ -23,7 +23,7 @@ case "$item" in
 		hyprctl kill
 		;;
 	"$update")
-		kitty sh -c "yay; read -sp $'\nPress Enter to exit'"
+		kitty sh -c "yay; read -sp $'\n\e[1;36mPress Enter to exit'"
 		;;
 	"$power")
 		~/.config/waybar/scripts/power-options.sh
