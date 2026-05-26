@@ -119,22 +119,23 @@ manage_wifi() {
 
     case $action in
         "󰸋  Connect")
-            local success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
-            local saved_connections
-            saved_connections=$(nmcli -g NAME connection show)
+			local success_message="You are now connected to the Wi-Fi network \"$chosen_id\"."
+			local saved_connections
+			saved_connections=$(nmcli -g NAME connection show)
 
-            if [[ $(echo "$saved_connections" | grep -Fx "$chosen_id") ]]; then
-                nmcli connection up id "$chosen_id" | grep "successfully" \
-                    && notify-send "Connection Established" "$success_message"
-            else
-                local wifi_password
-                wifi_password=$(rofi -dmenu -p "Password: " -password)
+			if [[ $(echo "$saved_connections" | grep -Fx "$chosen_id") ]]; then
+			    if nmcli connection up id "$chosen_id"; then
+			        notify-send "Connection Established" "$success_message"
+			    fi
+			else
+			    local wifi_password
+			    wifi_password=$(rofi -dmenu -p "Password: " -password)
 
-                nmcli device wifi connect "$chosen_id" password "$wifi_password" \
-                    | grep "successfully" \
-                    && notify-send "Connection Established" "$success_message"
-            fi
-            ;;
+			    if nmcli device wifi connect "$chosen_id" password "$wifi_password"; then
+			        notify-send "Connection Established" "$success_message"
+			    fi
+			fi
+			;;
         "  Disconnect")
             nmcli device disconnect wlan0 \
                 && notify-send "Disconnected" "You have been disconnected from $chosen_id."

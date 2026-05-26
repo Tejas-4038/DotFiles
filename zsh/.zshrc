@@ -85,6 +85,7 @@ alias yt-playlist='yt-dlp -x -o "%(playlist_index)s - %(title)s" --embed-thumbna
 alias autoremove='yay -Qdtq | yay -Rns -'
 alias reload-waybar='pkill -SIGUSR2 waybar'
 alias speedtest='cloudflare-speed-cli'
+alias wl-screenrec='wl-screenrec --codec hevc'
 #alias up="sudo dnf update"
 
 
