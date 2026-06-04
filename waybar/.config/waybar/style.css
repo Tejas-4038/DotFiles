@@ -94,7 +94,7 @@ tooltip {
 
 #workspaces button {
 	color: @text;
-	padding: 0px 7px 0px 3px;
+	padding: 0px;
 }
 
 #workspaces button:hover {

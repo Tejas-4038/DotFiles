@@ -1,0 +1,42 @@
+prefer-no-csd
+
+layout {
+	gaps 8
+	
+	default-column-width { proportion 0.667; }
+	preset-column-widths {
+		proportion 1.0
+		proportion 0.33333
+		proportion 0.5
+		proportion 0.66667
+	}
+	
+	focus-ring { off; }
+	
+	border {
+		on
+		width 2
+		active-gradient from="89b4fa" to="89dceb" angle=45
+		inactive-gradient from="595959" to="595959" angle=45
+	}
+	
+	shadow { on; }
+}
+
+overview {
+	backdrop-color "#181825"
+}
+
+recent-windows {
+	highlight {
+		active-color "#89b4faff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 12
+    }
+}
+
+blur {
+    passes 2
+    offset 8
+}

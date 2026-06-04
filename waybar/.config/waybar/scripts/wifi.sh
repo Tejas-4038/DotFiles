@@ -108,8 +108,7 @@ manage_wifi() {
 		autoconnect=""
 	fi
 		
-    action=$(echo -e "$action\n  Forget $autoconnect\n$back" | rofi -dmenu -kb-remove-char-back "" -kb-custom-1 "BackSpace" -format p -markup-rows -p "Action: ")
-
+    action=$(echo -e "$action\n  Forget$autoconnect\n$back" | rofi -dmenu -l 4 -kb-remove-char-back "" -kb-custom-1 "BackSpace" -format p -markup-rows -p "Action: ")
 	code=$?
 
 	if [ "$code" -eq 10 ]; then
@@ -129,7 +128,7 @@ manage_wifi() {
 			    fi
 			else
 			    local wifi_password
-			    wifi_password=$(rofi -dmenu -p "Password: " -password)
+			    wifi_password=$(rofi -dmenu -l 0 -p "Password: " -password)
 
 			    if nmcli device wifi connect "$chosen_id" password "$wifi_password"; then
 			        notify-send "Connection Established" "$success_message"

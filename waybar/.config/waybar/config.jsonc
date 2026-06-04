@@ -16,14 +16,14 @@
     "modules-left": [
         "custom/arch",
         "custom/div#1",
-        "hyprland/workspaces",
+        "niri/workspaces",
         "custom/div#2",
         "custom/gpu",
         "custom/div#3",
         "cpu",
         "temperature",
         "custom/div#4",
-        "hyprland/window"
+        "niri/window"
     ],
     "modules-center": [
         "clock"
@@ -48,25 +48,20 @@
     },
 
     /*----Workspaces----*/
-    "hyprland/workspaces": {
+    "niri/workspaces": {
         "format": "{icon}",
         "format-icons": {
             "default": "",
             "active": ""
         },
-        "persistent-workspaces": {
-            "*": 5
-        },
-        "on-scroll-up": "hyprctl dispatch workspace +1",
-        "on-scroll-down": "hyprctl dispatch workspace -1"
+        "on-scroll-up": "niri msg action focus-workspace-up",
+        "on-scroll-down": "niri msg action focus-workspace-down"
     },
 
     /*----Window----*/
-    "hyprland/window": {
-        "format": "{class}",
-        "tooltip-format": "{title}",
-        "max-length": 40,
-        "on-click-middle": "hyprctl dispatch killactive",
+    "niri/window": {
+        "format": "{app_id}",
+        "on-click-middle": "niri msg action close-window",
         "rewrite": {
             "kitty": "Terminal",
             "com.github.th_ch.youtube_music": "YouTube Music",

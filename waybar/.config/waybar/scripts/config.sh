@@ -1,6 +1,6 @@
 #!/bin/bash
 back="<span foreground='#f9e2af'>Back</span>"
-option=$(printf "Hyprland\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Config:")
+option=$(printf "Niri\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -l 7 -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Config:")
 
 code=$?
 
@@ -10,8 +10,8 @@ if [ "$code" -eq 10 ]; then
 fi
 
 case "$option" in
-	"Hyprland")
-		kitty zsh -ic "e ~/.config/hypr; exec zsh"
+	"Niri")
+		kitty zsh -ic "e ~/.config/niri; exec zsh"
 		;;
 	"Waybar")
 		kitty zsh -ic "e ~/.config/waybar; exec zsh"

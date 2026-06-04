@@ -1,0 +1,79 @@
+binds {
+	Mod+A { spawn "kitty"; }
+	Mod+E { spawn "thunar"; }
+	Mod+S { spawn "kitty" "zsh" "-ic" "micro"; }
+	Mod+W { spawn "firefox"; }
+	Alt+Space { spawn "vicinae" "toggle"; }
+	Mod+Tab { spawn "swaync-client" "-t"; }
+	Alt+F4 { spawn "~/.config/waybar/scripts/menu.sh"; }
+	Mod+L { spawn "hyprlock"; }
+	Mod+period { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
+	Mod+Shift+S { spawn "hyprpicker" "-a"; }
+	
+	Print { screenshot; }
+	Shift+Print { screenshot-screen; }
+	Mod+Q repeat=false { close-window; }
+	Mod+D repeat=false { toggle-overview; }
+	Mod+V { toggle-window-floating; }
+	Mod+F { maximize-column; }
+	Mod+Shift+F { fullscreen-window; }
+	Mod+M { maximize-window-to-edges; }
+	Mod+R { switch-preset-column-width; }
+	Mod+Shift+R { switch-preset-column-width-back; }
+	Mod+Minus { set-column-width "-10%"; }
+	Mod+Equal { set-column-width "+10%"; }
+	Mod+Shift+M { quit; }
+	Mod+Shift+P { power-off-monitors; }
+
+	Mod+Left { focus-column-left; }
+	Mod+Right { focus-column-right; }
+	Mod+Up { focus-window-or-workspace-up; }
+	Mod+Down { focus-window-or-workspace-down; }
+
+	Mod+Shift+Left { move-column-left; }
+	Mod+Shift+Right { move-column-right; }
+	Mod+Shift+Up { move-column-to-workspace-up; }
+	Mod+Shift+Down { move-column-to-workspace-down; }
+
+	Mod+1 { focus-workspace 1; }
+	Mod+2 { focus-workspace 2; }
+	Mod+3 { focus-workspace 3; }
+	Mod+4 { focus-workspace 4; }
+	Mod+5 { focus-workspace 5; }
+	Mod+6 { focus-workspace 6; }
+	Mod+7 { focus-workspace 7; }
+	Mod+8 { focus-workspace 8; }
+	Mod+9 { focus-workspace 9; }
+
+	Mod+Shift+1 { move-column-to-workspace 1; }
+	Mod+Shift+2 { move-column-to-workspace 2; }
+	Mod+Shift+3 { move-column-to-workspace 3; }
+	Mod+Shift+4 { move-column-to-workspace 4; }
+	Mod+Shift+5 { move-column-to-workspace 5; }
+	Mod+Shift+6 { move-column-to-workspace 6; }
+	Mod+Shift+7 { move-column-to-workspace 7; }
+	Mod+Shift+8 { move-column-to-workspace 8; }
+	Mod+Shift+9 { move-column-to-workspace 9; }
+
+	Mod+WheelScrollUp cooldown-ms=150 { focus-workspace-up; }
+	Mod+WheelScrollDown cooldown-ms=150 { focus-workspace-down; }
+
+	Mod+Shift+WheelScrollUp cooldown-ms=150 { focus-column-left; }
+	Mod+Shift+WheelScrollDown cooldown-ms=150 { focus-column-right; }
+
+    XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "swayosd-client --output-volume +5"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn-sh "swayosd-client --output-volume -5"; }
+
+    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "swayosd-client --output-volume +1"; }
+    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn-sh "swayosd-client --output-volume -1"; }
+
+    XF86AudioMute allow-when-locked=true { spawn-sh "swayosd-client --output-volume mute-toggle"; }
+    XF86AudioMicMute allow-when-locked=true { spawn-sh "swayosd-client --input-volume mute-toggle"; }
+
+    XF86MonBrightnessUp allow-when-locked=true { spawn-sh "swayosd-client --brightness +10"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn-sh "swayosd-client --brightness -10"; }
+
+    F8 allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    F9 allow-when-locked=true { spawn-sh "playerctl volume 0.05-"; }
+    F10 allow-when-locked=true { spawn-sh "playerctl volume 0.05+"; }
+}

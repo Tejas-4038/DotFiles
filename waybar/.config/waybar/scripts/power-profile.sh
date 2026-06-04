@@ -28,7 +28,7 @@ else
 fi
 
 # Show menu
-choice=$(echo -e "$options" | rofi -dmenu -markup-rows -p "Power Profile:")
+choice=$(echo -e "$options" | rofi -dmenu -l 3 -markup-rows -p "Power Profile:")
 
 case "$choice" in
     "󰓅  Performance")

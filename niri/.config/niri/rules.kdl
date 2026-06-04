@@ -1,0 +1,93 @@
+window-rule {	
+	geometry-corner-radius 12
+	clip-to-geometry true
+    open-maximized false
+    draw-border-with-background false
+    background-effect {
+		blur true
+		xray false
+	}
+}
+
+window-rule {
+	match app-id="blueman-manager"
+	match app-id="vicinae"
+	match app-id="org.kde.kdeconnect.handler"
+
+	open-floating true
+	open-focused true
+}
+
+window-rule {
+	match app-id="org.pulseaudio.pavucontrol"
+
+	open-floating true
+	open-focused true
+
+	min-width 750
+	max-width 750
+	min-height 500
+	max-height 500
+}
+
+window-rule {
+	match title="^Rename.*"
+	match title="Extract"
+	match title="File Operation Progress"
+
+	open-floating true
+	open-focused true
+}
+
+window-rule {
+	match app-id="thunar"
+	match app-id="vesktop"
+	match app-id="com.github.th_ch.youtube_music"
+	match app-id="io.github.elyprismlauncher.ElyPrismLauncher"
+	match app-id="FFPWA-01K86J2FX5J1EEXYCQ272ECWE2"
+	match app-id="blueman-manager"
+	match app-id="org.pulseaudio.pavucontrol"
+
+	opacity 0.9
+}
+
+window-rule {
+	match title="about"
+
+	open-floating true
+	open-focused true
+
+	min-width 1600
+	max-width 1600
+	min-height 900
+	max-height 900
+}
+
+window-rule {
+	match app-id="org.kde.kcalc"
+
+	default-column-width { proportion 0.33; }
+}
+layer-rule {
+	match namespace="waybar"
+	match namespace="swayosd"
+	match namespace="rofi"
+	match namespace="vicinae"
+	match namespace="launcher"
+
+	geometry-corner-radius 14
+	
+	background-effect {
+		blur true
+		xray false
+	}
+
+	popups {
+		geometry-corner-radius 12
+
+		background-effect {
+			blur true
+			xray false
+		}
+	}
+}

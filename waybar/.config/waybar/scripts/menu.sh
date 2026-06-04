@@ -7,11 +7,11 @@ kill="  Force Kill"
 update="  Update System"
 power="⏼  Power Options"
 
-item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -p "Menu:")
+item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -l 6 -p "Menu:")
 
 case "$item" in
 	"$about")
-		hyprctl dispatch exec [ tag about ] "kitty sh -c 'fastfetch --config all.jsonc; read -s'"
+		kitty -T "about" sh -c "fastfetch --config all.jsonc; read -s"
 		;;
 	"$conf")
 		~/.config/waybar/scripts/config.sh

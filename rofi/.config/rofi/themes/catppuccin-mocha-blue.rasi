@@ -45,7 +45,7 @@ listview {
 	columns: 1;
 	scrollbar: false;
 	spacing: 6px;
-	fixed-height: false;
+	fixed-height: true;
 	lines: 10;
 }
 

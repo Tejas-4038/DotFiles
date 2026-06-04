@@ -7,7 +7,7 @@ suspend="  Suspend"
 lock="  Lock Screen"
 back="<span foreground='#f9e2af'>  Back</span>"
 
-power=$(printf "$shutdown\n$reboot\n$logout\n$suspend\n$lock\n$back" | rofi -dmenu -i -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Power Option:")
+power=$(printf "$shutdown\n$reboot\n$logout\n$suspend\n$lock\n$back" | rofi -dmenu -i -l 6 -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Power Option:")
 
 code=$?
 
@@ -24,7 +24,7 @@ case "$power" in
 		systemctl reboot
 		;;
 	"$logout")
-		hyprctl dispatch exit
+		niri msg action quit
 		;;
 	"$suspend")
 		systemctl suspend
