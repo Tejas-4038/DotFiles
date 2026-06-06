@@ -1,3 +1,6 @@
+export QT_QPA_PLATFORMTHEME "qt6ct"
+export QT_QPA_PLATFORM "wayland"
+
 f() {
   if [[ "$1" == "-d" ]]; then
     command fastfetch "${@:2}"
@@ -40,13 +43,14 @@ prompt_starship() {
 }
 
 prompt_simple() {
-	local teal="#94e2d5"
-	local green="#a6e3a1"
-	local red="#f38ba8"
+	local dir=$'\e[35m'
+	local success=$'\e[32m'
+	local fail=$'\e[31m'
+	local rst=$'\e[0m'
 
 	PROMPT="
-%F{$teal}%~$f
-%(?.%F{#a6e3a1}.%F{#f38ba8})❯ %f"
+%{$dir%}%~%{$rst%}
+%(?.%{$success%}.%{$fail%})❯ %{$rst%}"
 }
 
 # eval "$(starship init zsh)"
@@ -154,3 +158,6 @@ export LESS_TERMCAP_ZO=$'\e[73m'
 export LESS_TERMCAP_ZW=$'\e[75m'
 export MANPAGER='less'
 export GROFF_NO_SGR=1
+
+# Created by `pipx` on 2026-06-05 18:41:29
+export PATH="$PATH:/home/tejas/.local/bin"

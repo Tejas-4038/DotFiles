@@ -6,9 +6,13 @@ binds {
 	Alt+Space { spawn "vicinae" "toggle"; }
 	Mod+Tab { spawn "swaync-client" "-t"; }
 	Alt+F4 { spawn "~/.config/waybar/scripts/menu.sh"; }
+	Mod+Alt+R { spawn "~/.config/waybar/scripts/screenrec_toggle.sh"; }
 	Mod+L { spawn "hyprlock"; }
 	Mod+period { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
 	Mod+Shift+S { spawn "hyprpicker" "-a"; }
+	Mod+Shift+T { spawn-sh "pkill -SIGUSR2 waybar"; }
+	Mod+Shift+F1 { spawn-sh "matugen image ~/Pictures/botw/09.jpg --source-color-index 0"; }
+	Mod+Shift+F2 { spawn-sh "matugen image ~/Pictures/botw/34.1.jpg --source-color-index 0"; }
 	
 	Print { screenshot; }
 	Shift+Print { screenshot-screen; }

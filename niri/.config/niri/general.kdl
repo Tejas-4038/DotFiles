@@ -1,17 +1,19 @@
+// spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "swayosd-server"
 spawn-at-startup "blueman-applet"
+spawn-at-startup "awww-daemon"
 spawn-at-startup "/usr/lib/soteria-polkit/soteria"
+spawn-at-startup "/usr/bin/kdeconnectd"
 spawn-sh-at-startup "vicinae server"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular"
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface font-name 'Google Sans Flex 10.2'"
-spawn-sh-at-startup "swaybg -i ~/Pictures/botw/34.1.jpg"
+spawn-sh-at-startup "matugen image ~/Pictures/botw/09.jpg --source-color-index 0"
 
 
 environment {
-	QT_QPA_PLATFORMTHEME "qt6ct"
-	QT_QPA_PLATFORM "wayland" 
+
 }
 
 cursor {

@@ -1,4 +1,5 @@
 configuration {
     modi: "drun,run,window";
 }
+
 @theme "~/.config/rofi/themes/catppuccin-mocha-blue"

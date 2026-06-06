@@ -3,9 +3,17 @@ window-rule {
 	clip-to-geometry true
     open-maximized false
     draw-border-with-background false
+
     background-effect {
 		blur true
 		xray false
+	}
+
+	popups {
+	    background-effect {
+			blur true
+			xray false
+		}
 	}
 }
 
@@ -13,6 +21,7 @@ window-rule {
 	match app-id="blueman-manager"
 	match app-id="vicinae"
 	match app-id="org.kde.kdeconnect.handler"
+	match app-id="org.kde.kdeconnect.daemon"
 
 	open-floating true
 	open-focused true

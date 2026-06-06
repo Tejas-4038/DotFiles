@@ -1,12 +1,9 @@
+@import "colors.rasi"
+
 * {
 	font: "Google Sans Flex 11.6";
 	background-color: transparent;
-	text-color: #cdd6f4;
-	border-color: #181825;
-	selected-normal-foreground: #1e1e2e;
-	selected-normal-background: #89b4fa;
-	selected-active-background: #89b4fa;
-	selected-urgent-background: #f38ba8;
+	text-color: @on-surface;
 	spacing: 6px;
 	padding: 8px;
 	border-radius: 12px;
@@ -14,9 +11,9 @@
 
 window {
 	transparency: "real";
-	background-color: rgba(30, 30, 46, 0.85);
+	background-color: @surface;
 	border: 2px;
-	border-color: #89b4fa;
+	border-color: @primary;
 	border-radius: 16px;
 	width: 480px;
 }
@@ -29,16 +26,16 @@ mainbox {
 inputbar {
 	children: [ prompt, entry ];
 	padding: 8px 12px;
-	background-color: rgba(24, 24, 37, 0.5);
+	background-color: @surface-container-lowest;
 	border-radius: 10px;
 	margin: 4px 0;
 }
 
 entry {
 	expand: true;
-	text-color: #cdd6f4;
+	text-color: @on-surface;
 	placeholder: "Search...";
-	placeholder-color: #6c7086;
+	placeholder-color: @surface-variant;
 }
 
 listview {
@@ -62,18 +59,18 @@ element-icon {
 
 element-text {
 	vertical-align: 0.5;
-	text-color: #cdd6f4;
+	text-color: @on-surface;
 	ellipsize: true;
 }
 
 element selected {
-	background-color: rgba(137, 180, 250, 0.12);
+	background-color: @primary-selected;
 	border: 1px;
-	border-color: #89b4fa;
+	border-color: @primary;
 }
 
 element-text selected {
-	color: #89b4fa;
+	color: @primary;
 }
 
 scrollbar {

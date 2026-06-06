@@ -1,6 +1,6 @@
 #!/bin/bash
 back="<span foreground='#f9e2af'>Back</span>"
-option=$(printf "Niri\nWaybar\nKitty\nZsh\nOther\nGit Repo\n$back"| rofi -dmenu -i -l 7 -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Config:")
+option=$(printf "Niri\nWaybar\nKitty\nMatugen\nOther\nGit Repo\n$back"| rofi -dmenu -i -l 7 -markup-rows -kb-remove-char-back "" -kb-custom-1 "BackSpace" -p "Config:")
 
 code=$?
 
@@ -19,8 +19,8 @@ case "$option" in
 	"Kitty")
 		kitty micro ~/.config/kitty/kitty.conf
 		;;
-	"Zsh")
-		kitty micro ~/.zshrc
+	"Matugen")
+		kitty zsh -ic "e ~/.config/matugen; exec zsh"
 		;;
 	"Other")
 		kitty zsh -ic "e ~/.config/; exec zsh"

@@ -3,20 +3,17 @@
 ---------------------*/
 
 /*---Colors----*/
-@define-color base #1e1e2e;
-@define-color accent #89b4fa;
-@define-color text #cdd6f4;
-@define-color mantle #181825;
-@define-color crust #11111b;
-@define-color surface transparent;
-@define-color div #6c7086;
-@define-color hover @accent;
-@define-color red #f38ba8;
-@define-color hover_bg rgba(255, 255, 255, 0.04);
+@import "colors.css";
 
+@define-color bg @surface;
+@define-color text @on_surface_variant;
+@define-color container @surface_container;
+@define-color accent @primary;
+@define-color hover @tertiary;
+@define-color div @surface_variant;
 /*----Waybar----*/
 #waybar {
-	background-color: @base;
+	background-color: alpha(@bg, 0.9);
 	/*border-radius: 10px;*/
 }
 
@@ -57,7 +54,7 @@
 
 /*----Menu----*/
 menu {
-	background-color: alpha(@base, 0.85);
+	background-color: alpha(@bg, 0.85);
 	color: @text;
 }
 decoration {
@@ -71,7 +68,7 @@ menu label {
 }
 /*----Menu----*/
 tooltip {
-	background-color: @base;
+	background-color: alpha(@container, 0.95);
 }
 
 /*---------------------
@@ -81,25 +78,20 @@ tooltip {
 /*----Arch----*/
 #custom-arch {
 	padding: 0px 8px 0px 8px;
-	background-color: transparent;
 	font-size: 18px;
 }
 
 /*----Workspaces----*/
 #workspaces {
 	padding: 0px;
-	background-color: @surface;
 	border-radius: 8px;
 }
 
 #workspaces button {
 	color: @text;
-	padding: 0px;
+	padding: 0px 8px 0px 8px;
 }
 
-#workspaces button:hover {
-	background-color: @hover_bg;
-}
 
 #workspaces button.active label, #workspaces button:hover label {
 	color: @accent;
@@ -189,7 +181,7 @@ tooltip {
 }
 
 #custom-connectivity_status {
-	color: @red;
+	color: @error;
 	font-family: "Red Hat Display";
 	font-weight: 900;
 	margin-left: -7px;

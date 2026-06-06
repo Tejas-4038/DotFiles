@@ -3,7 +3,7 @@
 about="  About This Computer"
 conf="  System Config"
 menu="  App Menu"
-kill="  Force Kill"
+kill="  Force Kill"
 update="  Update System"
 power="⏼  Power Options"
 
@@ -20,7 +20,7 @@ case "$item" in
 		vicinae vicinae://launch/system/browse-apps
 		;;
 	"$kill")
-		hyprctl kill
+		~/.config/niri/force-kill.sh
 		;;
 	"$update")
 		kitty sh -c "yay; read -sp $'\n\e[1;36mPress Enter to exit'"

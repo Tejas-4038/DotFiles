@@ -7,6 +7,7 @@ input {
 	}
 
 	touchpad {
+		dwt
 		tap
 		natural-scroll
 		accel-profile "adaptive"
