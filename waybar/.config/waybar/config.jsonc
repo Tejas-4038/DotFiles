@@ -131,7 +131,7 @@
         "format-paused": "<i>{player_icon} {title}</i>",
         "max-length": 30,
         "tooltip-format": "{dynamic}",
-        "on-click": "playerctl play-pause; pkill -RTMIN+8 waybar",
+        "on-click": "swaync-client -t -sw",
         "on-scroll-up": "playerctl volume 0.02+",
         "on-scroll-down": "playerctl volume 0.02-",
         "player-icons": {

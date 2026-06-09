@@ -43,7 +43,7 @@ prompt_starship() {
 }
 
 prompt_simple() {
-	local dir=$'\e[35m'
+	local dir=$'\e[36m'
 	local success=$'\e[32m'
 	local fail=$'\e[31m'
 	local rst=$'\e[0m'
