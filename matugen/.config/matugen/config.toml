@@ -70,4 +70,8 @@ post_hook = 'cat ~/Scripts/colors.css ~/Scripts/matugen.css > /tmp/matugen.css &
 
 [templates.kb-backlight]
 input_path = '~/.config/matugen/templates/colors.css'
-post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{ colors.primary.default.hex_stripped | saturate: 50.0, "hsl"}}'
+post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 50.0, "hsl"}}'
+
+[templates.fastfetch]
+input_path = '~/.config/matugen/templates/colors.css'
+post_hook = 'magick ~/.config/matugen/crest-plain.png -fill "{{colors.tertiary.default.hex}}" -colorize 100 ~/.config/fastfetch/logos/crest-matugen.png'

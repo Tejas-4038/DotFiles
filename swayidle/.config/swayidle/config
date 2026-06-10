@@ -1,0 +1,7 @@
+timeout 900 "brightnessctl -sd asus::kbd_backlight set 0; niri msg action power-off-monitors" resume "brightnessctl -rd asus::kbd_backlight; niri msg action power-on-monitors"
+
+timeout 1800 "systemctl suspend"
+
+before-sleep "hyprlock"
+
+after-resume "brightnessctl -rd asus::kbd_backlight; niri msg action power-on-monitors"

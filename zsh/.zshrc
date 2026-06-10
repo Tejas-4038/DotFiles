@@ -7,7 +7,7 @@ f() {
   elif [[ "$1" == "--config" ]]; then
     command fastfetch "$@"
   else
-    command fastfetch --config ~/.config/fastfetch/config-catppuccin.jsonc "$@"
+    command fastfetch --config ~/.config/fastfetch/config-matugen.jsonc "$@"
   fi
 }
 

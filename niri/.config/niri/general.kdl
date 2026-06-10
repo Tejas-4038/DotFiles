@@ -1,5 +1,6 @@
 // spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "waybar"
+spawn-at-startup "swayidle"
 spawn-at-startup "swaync"
 spawn-at-startup "swayosd-server"
 spawn-at-startup "blueman-applet"
