@@ -3,75 +3,79 @@ set = true
 command = 'awww img "{{ image }}" -t center --transition-duration=1 --transition-fps=255'
 
 [templates.waybar]
-input_path = '~/.config/matugen/templates/colors.css'
+input_path = 'templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
 [templates.niri]
-input_path = '~/.config/matugen/templates/niri-colors.kdl'
+input_path = 'templates/niri-colors.kdl'
 output_path = '~/.config/niri/colors.kdl'
 post_hook = 'niri msg action load-config-file'
 
 [templates.gtk3]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
+input_path = 'templates/gtk-colors.css'
 output_path = '~/.config/gtk-3.0/colors.css'
 post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
 
 [templates.gtk4]
-input_path = '~/.config/matugen/templates/gtk-colors.css'
+input_path = 'templates/gtk-colors.css'
 output_path = '~/.config/gtk-4.0/colors.css'
 post_hook = '~/.config/matugen/gtk-themes-reload.sh'
 
 [templates.color-scheme]
-input_path = '~/.config/matugen/templates/Matugen.colors'
+input_path = 'templates/Matugen.colors'
 output_path = '~/.local/share/color-schemes/Matugen.colors'
 
 [templates.pywalfox]
-input_path = '~/.config/matugen/templates/pywalfox-colors.json'
+input_path = 'templates/pywalfox-colors.json'
 output_path = '~/.cache/wal/colors.json'
 post_hook = 'pywalfox update'
 
 [templates.rofi]
-input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+input_path = 'templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/themes/colors.rasi'
 
 [templates.kitty]
-input_path = '~/.config/matugen/templates/kitty-colors.conf'
+input_path = 'templates/kitty-colors.conf'
 output_path = '~/.config/kitty/themes/Matugen.conf'
 post_hook = "kitty +kitten themes --reload-in=all Matugen"
 
 [templates.swayosd]
-input_path = '~/.config/matugen/templates/colors.css'
+input_path = 'templates/colors.css'
 output_path = '~/.config/swayosd/colors.css'
 post_hook = 'pkill swayosd-server || true; swayosd-server &'
 
 [templates.swaync]
-input_path = '~/.config/matugen/templates/colors.css'
+input_path = 'templates/colors.css'
 output_path = '~/.config/swaync/colors.css'
 post_hook = 'swaync-client -rs'
 
 [templates.micro]
-input_path = '~/.config/matugen/templates/micro.micro'
+input_path = 'templates/micro.micro'
 output_path = '~/.config/micro/colorschemes/matugen.micro'
 
 [templates.yazi]
-input_path = '~/.config/matugen/templates/yazi-theme.toml'
+input_path = 'templates/yazi-theme.toml'
 output_path = '~/.config/yazi/theme.toml'
 
 [templates.vicinae]
-input_path = '~/.config/matugen/templates/vicinae.toml'
+input_path = 'templates/vicinae.toml'
 output_path = '~/.local/share/vicinae/themes/matugen.toml'
 post_hook = 'vicinae theme set matugen'
 
 [templates.ytmusic]
-input_path = '~/.config/matugen/templates/yt-music-colors.css'
+input_path = 'templates/yt-music-colors.css'
 output_path = '~/Scripts/colors.css'
 post_hook = 'cat ~/Scripts/colors.css ~/Scripts/matugen.css > /tmp/matugen.css && mv /tmp/matugen.css ~/matugen.css'
 
+[templates.vesktop]
+input_path = 'templates/midnight-discord.css'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
+
 [templates.kb-backlight]
-input_path = '~/.config/matugen/templates/colors.css'
+input_path = 'templates/colors.css'
 post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 50.0, "hsl"}}'
 
 [templates.fastfetch]
-input_path = '~/.config/matugen/templates/colors.css'
+input_path = 'templates/colors.css'
 post_hook = 'magick ~/.config/matugen/crest-plain.png -fill "{{colors.tertiary.default.hex}}" -colorize 100 ~/.config/fastfetch/logos/crest-matugen.png'

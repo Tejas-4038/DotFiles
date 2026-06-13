@@ -6,7 +6,7 @@ binds {
 	Alt+Space { spawn "vicinae" "toggle"; }
 	Mod+Tab { spawn "swaync-client" "-t"; }
 	Alt+F4 { spawn "~/.config/waybar/scripts/menu.sh"; }
-	Mod+Alt+R { spawn "~/.config/waybar/scripts/screenrec_toggle.sh"; }
+	Alt+Shift+R { spawn "~/.config/waybar/scripts/screenrec_toggle.sh"; }
 	Mod+L { spawn "hyprlock"; }
 	Mod+period { spawn "vicinae" "vicinae://launch/core/search-emojis"; }
 	Mod+Shift+S { spawn "hyprpicker" "-a"; }
