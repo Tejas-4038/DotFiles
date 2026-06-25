@@ -1,6 +1,6 @@
 binds {
 	Mod+A { spawn "kitty"; }
-	Mod+E { spawn "thunar"; }
+	Mod+E { spawn "nautilus"; }
 	Mod+S { spawn "kitty" "zsh" "-ic" "micro"; }
 	Mod+W { spawn "firefox"; }
 	Alt+Space { spawn "vicinae" "toggle"; }

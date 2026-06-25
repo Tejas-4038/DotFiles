@@ -74,7 +74,7 @@ output_path = '~/.config/vesktop/themes/midnight-discord.css'
 
 [templates.kb-backlight]
 input_path = 'templates/colors.css'
-post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 50.0, "hsl"}}'
+post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 100.0, "hsl" | lighten: -2.0}}'
 
 [templates.fastfetch]
 input_path = 'templates/colors.css'

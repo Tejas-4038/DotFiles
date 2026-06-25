@@ -11,10 +11,6 @@ f() {
   fi
 }
 
-if [[ "$XDG_CURRENT_DESKTOP" == "KDE" ]]; then
-  f
-fi
-
 prompt_starship() {
 	local surface="#313244"
 	local peach="#fab387"

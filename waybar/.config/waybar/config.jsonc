@@ -95,7 +95,7 @@
 
     /*----Clock----*/
     "clock": {
-        "format": "{:%A %I:%M %p}",
+        "format": "{:%a, %b %d <span color='#49454e' font_family='CaskaydiaCove Nerd Font'>|</span> %I:%M %p}",
         "tooltip-format": "{calendar}",
         "calendar": {
             "mode": "month",
