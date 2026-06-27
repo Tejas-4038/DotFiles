@@ -15,7 +15,7 @@
 
     "timeout": 3,
     "timeout-low": 2,
-    "timeout-critical": 6,
+    "timeout-critical": 0,
 
     "keyboard-shortcuts": true,
     "image-visibility": "when-available",

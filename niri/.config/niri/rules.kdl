@@ -74,9 +74,11 @@ window-rule {
 
 window-rule {
 	match app-id="org.kde.kcalc"
+	match app-id="org.gnome.Calculator"
 
 	default-column-width { proportion 0.33; }
 }
+
 layer-rule {
 	match namespace="waybar"
 	match namespace="swayosd"

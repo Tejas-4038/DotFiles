@@ -1,5 +1,5 @@
 // spawn-at-startup "qs" "-c" "noctalia-shell"
-spawn-at-startup "waybar"
+spawn-sh-at-startup "waybar -l debug &>$HOME/Documents/waybar.log"
 spawn-at-startup "swayidle"
 spawn-at-startup "swaync"
 spawn-at-startup "swayosd-server"

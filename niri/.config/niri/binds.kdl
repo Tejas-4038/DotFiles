@@ -13,6 +13,7 @@ binds {
 	Mod+Shift+T { spawn-sh "pkill -SIGUSR2 waybar"; }
 	Mod+Shift+F1 { spawn-sh "matugen image ~/Pictures/botw/09.jpg --source-color-index 0"; }
 	Mod+Shift+F2 { spawn-sh "matugen image ~/Pictures/botw/34.1.jpg --source-color-index 0"; }
+	XF86Calculator { spawn "gnome-calculator"; }
 	
 	Print { screenshot; }
 	Shift+Print { screenshot-screen; }

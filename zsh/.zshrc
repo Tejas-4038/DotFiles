@@ -1,6 +1,3 @@
-export QT_QPA_PLATFORMTHEME "qt6ct"
-export QT_QPA_PLATFORM "wayland"
-
 f() {
   if [[ "$1" == "-d" ]]; then
     command fastfetch "${@:2}"
@@ -130,10 +127,7 @@ function e() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
-export EDITOR=micro
-#export PATH=$PATH:/home/tejas/.spicetify
 
-export "MICRO_TRUECOLOR=1"
 
 bindkey '^H' backward-kill-word
 
@@ -153,6 +147,3 @@ export LESS_TERMCAP_ZO=$'\e[73m'
 export LESS_TERMCAP_ZW=$'\e[75m'
 export MANPAGER='less'
 export GROFF_NO_SGR=1
-
-# Created by `pipx` on 2026-06-05 18:41:29
-export PATH="$PATH:/home/tejas/.local/bin"

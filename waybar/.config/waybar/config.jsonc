@@ -30,7 +30,10 @@
     ],
 
     "modules-right": [
-        "group/media",
+        "custom/mpris",
+        "custom/previous",
+        "custom/play",
+        "custom/next",
         "custom/div#5",
         "network",
         "custom/connectivity_status",
@@ -66,7 +69,8 @@
             "kitty": "Terminal",
             "com.github.th_ch.youtube_music": "YouTube Music",
             "FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp",
-            "org.pulseaudio.pavucontrol": "Volume Control"
+            "org.pulseaudio.pavucontrol": "Volume Control",
+            "org.gnome.Nautilus": "Files"
         }
     },
 
@@ -113,18 +117,6 @@
     },
 
     /*----Media Player----*/
-    "group/media": {
-        "orientation": "horizontal",
-        "on-scroll-up": true,
-        "on-scroll-down": true,
-        "modules": [
-            "mpris",
-            "custom/previous",
-            "custom/play",
-            "custom/next"
-        ]
-    },
-
     "mpris": {
         "interval": 1,
         "format": "{player_icon} {title}",
@@ -140,6 +132,14 @@
             "firefox": "<span foreground='#f38ba8'>󰗃 </span>",
             "YoutubeMusic": "<span foreground='#f38ba8'> </span>"
         }
+    },
+
+    "custom/mpris": {
+        "exec": "~/.config/waybar/scripts/mpris.sh",
+        "interval": 1,
+        "return-type": "json",
+        "escape": false,
+        "on-click": "swaync-client -t -sw"
     },
 
     "custom/play": {
