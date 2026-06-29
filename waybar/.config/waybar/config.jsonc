@@ -67,7 +67,7 @@
         "on-click-middle": "niri msg action close-window",
         "rewrite": {
             "kitty": "Terminal",
-            "com.github.th_ch.youtube_music": "YouTube Music",
+            "com.github.th-ch.youtube-music": "YouTube Music",
             "FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp",
             "org.pulseaudio.pavucontrol": "Volume Control",
             "org.gnome.Nautilus": "Files"
@@ -139,7 +139,11 @@
         "interval": 1,
         "return-type": "json",
         "escape": false,
-        "on-click": "swaync-client -t -sw"
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "on-click-middle": "playerctl previous",
+        "on-scroll-up": "playerctl volume 0.02+",
+        "on-scroll-down": "playerctl volume 0.02-"
     },
 
     "custom/play": {

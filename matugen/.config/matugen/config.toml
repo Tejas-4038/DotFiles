@@ -7,6 +7,10 @@ input_path = 'templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
+[templates.waybar-mpris-module]
+input_path = 'templates/mpris-colors.sh'
+output_path = '~/.config/waybar/scripts/mpris-colors.sh'
+
 [templates.niri]
 input_path = 'templates/niri-colors.kdl'
 output_path = '~/.config/niri/colors.kdl'
@@ -65,8 +69,7 @@ post_hook = 'vicinae theme set matugen'
 
 [templates.ytmusic]
 input_path = 'templates/yt-music-colors.css'
-output_path = '~/Scripts/colors.css'
-post_hook = 'cat ~/Scripts/colors.css ~/Scripts/matugen.css > /tmp/matugen.css && mv /tmp/matugen.css ~/matugen.css'
+output_path = '~/Scripts/matugen.css'
 
 [templates.vesktop]
 input_path = 'templates/midnight-discord.css'

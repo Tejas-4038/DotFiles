@@ -51,7 +51,7 @@ window-rule {
 window-rule {
 	match app-id="org.gnome.Nautilus"
 	match app-id="vesktop"
-	match app-id="com.github.th_ch.youtube_music"
+	match app-id="com.github.th-ch.youtube-music"
 	match app-id="io.github.elyprismlauncher.ElyPrismLauncher"
 	match app-id="FFPWA-01K86J2FX5J1EEXYCQ272ECWE2"
 	match app-id="blueman-manager"
