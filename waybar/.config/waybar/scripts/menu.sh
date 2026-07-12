@@ -3,11 +3,12 @@
 about="  About This Computer"
 conf="  System Config"
 menu="  App Menu"
+wall="  Wallpapers"
 kill="  Force Kill"
 update="  Update System"
 power="⏼  Power Options"
 
-item=$(printf "$about\n$conf\n$menu\n$kill\n$update\n$power" | rofi -dmenu -i -l 6 -p "Menu:")
+item=$(printf "$about\n$conf\n$menu\n$wall\n$kill\n$update\n$power" | rofi -dmenu -i -l 7 -p "Menu:")
 
 case "$item" in
 	"$about")
@@ -18,6 +19,9 @@ case "$item" in
 		;;
 	"$menu")
 		vicinae vicinae://launch/system/browse-apps
+		;;
+	"$wall")
+		vicinae vicinae://launch/@sovereign/store.vicinae.awww-switcher/wpgrid
 		;;
 	"$kill")
 		~/.config/niri/force-kill.sh

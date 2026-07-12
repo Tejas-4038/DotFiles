@@ -17,7 +17,7 @@ escape_markup() {
 
 player=$(playerctl metadata --format '{{playerName}}')
 title=$(playerctl metadata title | escape_markup)
-title_short=$(playerctl metadata --format '{{trunc(title, 30)}}')
+title_short=$(playerctl metadata --format '{{trunc(title, 30)}}' | escape_markup)
 artist=$(playerctl metadata artist | escape_markup)
 
 

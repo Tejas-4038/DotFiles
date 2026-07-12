@@ -57,9 +57,7 @@ menu {
 	background-color: alpha(@bg, 0.85);
 	color: @text;
 }
-decoration {
-	background-color: transparent;
-}
+
 menu label {
 	font-family: "Google Sans Flex";
 	font-size: 15.4px;
@@ -68,7 +66,7 @@ menu label {
 }
 /*----Menu----*/
 tooltip {
-	background-color: alpha(@container, 0.95);
+	background-color: alpha(@bg, 0.9);
 }
 
 /*---------------------
