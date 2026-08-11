@@ -147,3 +147,6 @@ export LESS_TERMCAP_ZO=$'\e[73m'
 export LESS_TERMCAP_ZW=$'\e[75m'
 export MANPAGER='less'
 export GROFF_NO_SGR=1
+
+# Created by `pipx` on 2026-08-09 12:23:07
+export PATH="$PATH:/home/tejas/.local/bin"

@@ -4,7 +4,7 @@ about="  About This Computer"
 conf="  System Config"
 menu="  App Menu"
 wall="  Wallpapers"
-kill="  Force Kill"
+kill="  Force Kill"
 update="  Update System"
 power="⏼  Power Options"
 

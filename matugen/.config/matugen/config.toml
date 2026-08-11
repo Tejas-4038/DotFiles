@@ -77,8 +77,12 @@ output_path = '~/.config/vesktop/themes/midnight-discord.css'
 
 [templates.kb-backlight]
 input_path = 'templates/colors.css'
-post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 100.0, "hsl" | lighten: -7.5}}'
+post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 20.0, "hsl" | lighten: -7.5}}'
 
 [templates.fastfetch]
 input_path = 'templates/colors.css'
 post_hook = 'magick ~/.config/matugen/crest-plain.png -fill "{{colors.tertiary.default.hex}}" -colorize 100 ~/.config/fastfetch/logos/crest-matugen.png'
+
+[templates.freesmlauncher]
+input_path = 'templates/prismlauncher.json'
+output_path = '~/.local/share/FreesmLauncher/themes/Matugen/theme.json'

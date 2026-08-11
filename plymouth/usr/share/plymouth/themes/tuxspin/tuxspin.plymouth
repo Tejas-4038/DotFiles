@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=tuxspin
+Description=Generated from tux_spinning_3d_faster.gif by gif-to-plymouth
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/tuxspin
+ScriptFile=/usr/share/plymouth/themes/tuxspin/tuxspin.script

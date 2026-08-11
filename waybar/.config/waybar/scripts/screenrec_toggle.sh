@@ -49,7 +49,7 @@ if [[ -z "$pid" ]]; then
 					echo $?
 					;;
 				"Audio")
-					notify-send "Recording Started with Audio"			
+					notify-send "Recording Started with Audio"
 					wl-screenrec --codec hevc -g "$region" --audio --audio-device $device -f ~/Videos/Screencasts/screenrecord_$time.mp4
 					;;
 			esac

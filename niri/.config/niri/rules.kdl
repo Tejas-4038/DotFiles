@@ -10,8 +10,10 @@ window-rule {
 	}
 
 	popups {
+		geometry-corner-radius 14
+
 	    background-effect {
-			blur false
+			blur true
 			xray false
 		}
 	}
@@ -52,13 +54,16 @@ window-rule {
 	match app-id="org.gnome.Nautilus"
 	match app-id="vesktop"
 	match app-id="com.github.th-ch.youtube-music"
-	match app-id="io.github.elyprismlauncher.ElyPrismLauncher"
+	match app-id="org.freesmlauncher.FreesmLauncher"
 	match app-id="FFPWA-01K86J2FX5J1EEXYCQ272ECWE2"
 	match app-id="blueman-manager"
 	match app-id="org.pulseaudio.pavucontrol"
+	match app-id="org.gnome.baobab"
+	match app-id="gay.vaskel.soteria"
 
 	opacity 0.9
 }
+
 
 window-rule {
 	match title="about"
@@ -77,6 +82,12 @@ window-rule {
 	match app-id="org.gnome.Calculator"
 
 	default-column-width { proportion 0.33; }
+}
+
+window-rule {
+	match app-id="io.github.celluloid_player.Celluloid"
+
+	default-column-width { proportion 1.00; }
 }
 
 layer-rule {

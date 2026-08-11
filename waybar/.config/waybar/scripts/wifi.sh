@@ -129,10 +129,17 @@ manage_wifi() {
 			else
 			    local wifi_password
 			    wifi_password=$(rofi -dmenu -l 0 -p "Password: " -password)
-
-			    if nmcli device wifi connect "$chosen_id" password "$wifi_password"; then
-			        notify-send "Connection Established" "$success_message"
-			    fi
+			    nmcli device wifi connect "$chosen_id" password "$wifi_password"
+			    connected=$(nmcli --terse --fields "NAME" connection show --active | head -n 1)
+			    
+			    until [[ "$connected" = "$chosen_id" ]]; do
+			        notify-send "Connection Failed" "Incorrect Password"
+			        wifi_password=$(rofi -dmenu -l 0 -p "Password: " -password)
+					nmcli device wifi connect "$chosen_id" password "$wifi_password"
+			    	connected=$(nmcli --terse --fields "NAME" connection show --active | head -n 1)
+			        sleep 1 
+				done
+				notify-send "Connection Established" "$success_message"
 			fi
 			;;
         "  Disconnect")
