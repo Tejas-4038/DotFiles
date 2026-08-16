@@ -60,6 +60,7 @@ window-rule {
 	match app-id="org.pulseaudio.pavucontrol"
 	match app-id="org.gnome.baobab"
 	match app-id="gay.vaskel.soteria"
+	match app-id="xyz.z3ntu.razergenie"
 
 	opacity 0.9
 }
