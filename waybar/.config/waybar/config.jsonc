@@ -9,7 +9,8 @@
     //	"margin-bottom": 0,
 
     "include": [
-        "~/.config/waybar/modules/custom/dividers.jsonc"
+        "~/.config/waybar/modules/custom/dividers.jsonc",
+        "~/.config/waybar/modules/clock.jsonc"
     ],
 
     /*----Layout----*/
@@ -31,6 +32,7 @@
 
     "modules-right": [
         "custom/mpris",
+        "cava",
         "custom/previous",
         "custom/play",
         "custom/next",
@@ -101,42 +103,23 @@
         "format": " {temperatureC}°C"
     },
 
-    /*----Clock----*/
-    "clock": {
-        "format": "{:%a, %b %d <span color='#49454e' font_family='CaskaydiaCove Nerd Font'>|</span> %I:%M %p}",
-        "tooltip-format": "{calendar}",
-        "calendar": {
-            "mode": "month",
-            "mode-mon-col": 6,
-            "format": {
-                "months": "<span color='#fab387'><b>{}</b></span>",
-                "days": "<span color='#CDD6F4'>{}</span>",
-                "weekdays": "<span color='#f9e2af'><i>{}</i></span>",
-                "today": "<span color='#89B4FA'><b><u>{}</u></b></span>"
-            }
-        },
-        "actions": {
-            "on-click": "mode"
-        }
-    },
-
     /*----Media Player----*/
-    "mpris": {
-        "interval": 1,
-        "format": "{player_icon} {title}",
-        "format-paused": "<i>{player_icon} {title}</i>",
-        "max-length": 30,
-        "tooltip-format": "{dynamic}",
-        "on-click": "swaync-client -t -sw",
-        "on-scroll-up": "playerctl volume 0.02+",
-        "on-scroll-down": "playerctl volume 0.02-",
-        "player-icons": {
-            "default": "<span foreground='#cba6f7'>󰝚 </span>",
-            "spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
-            "firefox": "<span foreground='#f38ba8'>󰗃 </span>",
-            "YoutubeMusic": "<span foreground='#f38ba8'> </span>"
-        }
-    },
+    // "mpris": {
+    //     "interval": 1,
+    //     "format": "{player_icon} {title}",
+    //     "format-paused": "<i>{player_icon} {title}</i>",
+    //     "max-length": 30,
+    //     "tooltip-format": "{dynamic}",
+    //     "on-click": "swaync-client -t -sw",
+    //     "on-scroll-up": "playerctl volume 0.02+",
+    //     "on-scroll-down": "playerctl volume 0.02-",
+    //     "player-icons": {
+    //         "default": "<span foreground='#cba6f7'>󰝚 </span>",
+    //         "spotify": "<span foreground='#a6e3a1'>󰓇 </span>",
+    //         "firefox": "<span foreground='#f38ba8'>󰗃 </span>",
+    //         "YoutubeMusic": "<span foreground='#f38ba8'> </span>"
+    //     }
+    // },
 
     "custom/mpris": {
         "exec": "~/.config/waybar/scripts/mpris.sh",
@@ -148,6 +131,28 @@
         "on-click-middle": "playerctl previous",
         "on-scroll-up": "playerctl volume 0.02+",
         "on-scroll-down": "playerctl volume 0.02-"
+    },
+
+    "cava": {
+        "cava_config": "$HOME/.config/cava/waybar_raw.conf",
+        "framerate": 60,
+        "autosens": 1,
+        //"sensitivity": 100,
+        "bars": 6,
+        "lower_cutoff_freq": 50,
+        "higher_cutoff_freq": 10000,
+        "method": "pulse",
+        "source": "auto",
+        "stereo": true,
+        "reverse": false,
+        "noise_reduction": 0.77,
+        "input_delay": 2,
+        "sleep_timer": 5,
+        "hide_on_silence": true,
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "actions": {
+            "on-click-right": "mode"
+        }
     },
 
     "custom/play": {

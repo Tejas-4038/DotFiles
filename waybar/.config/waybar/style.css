@@ -158,6 +158,13 @@ tooltip {
 	font-size: 15.4px;
 }
 
+#cava {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: @tertiary;
+    margin: 0px 6px 0px 0px;
+}
+
 #custom-play {
 	margin: 0px 9px;
 }

@@ -29,7 +29,7 @@ binds {
 	Mod+Minus { set-column-width "-10%"; }
 	Mod+Equal { set-column-width "+10%"; }
 	Mod+Shift+M { quit; }
-	Mod+Shift+P { power-off-monitors; }
+	Mod+P { power-off-monitors; }
 
 	Mod+Left { focus-column-left; }
 	Mod+Right { focus-column-right; }

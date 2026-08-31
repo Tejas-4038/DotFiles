@@ -29,7 +29,7 @@ if [[ -z "$pid" ]]; then
 	esac
 
 	notify-send "Recording Started"
-	gpu-screen-recorder -w "$region" -f 60 -a "$audio" -o "$path"
+	gpu-screen-recorder -w "$region" -f 60 -k hevc -a "$audio" -o "$path"
 
 else
 	pkill -SIGINT -f "^gpu-screen-recorder" && notify-send "Recording Stopped"

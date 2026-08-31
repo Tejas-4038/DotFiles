@@ -1,0 +1,20 @@
+{
+    /*----Clock----*/
+    "clock": {
+        "format": "{:%a, %b %d <span color='#49454e' font_family='CaskaydiaCove Nerd Font'>|</span> %I:%M %p}",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 6,
+            "format": {
+                "months": "<span color='#cfbdfe'><b>{}</b></span>",
+                "days": "<span color='#e6e0e9'>{}</span>",
+                "weekdays": "<span color='#65558f'><i>{}</i></span>",
+                "today": "<span color='#efb8c8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click": "mode"
+        }
+    }
+}

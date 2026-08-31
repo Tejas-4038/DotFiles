@@ -1,6 +1,6 @@
 #!/bin/bash
 
-shutdown="⏻  Shut Down"
+shutdown="  Shut Down"
 reboot="  Reboot"
 logout="  Logout"
 suspend="  Suspend"

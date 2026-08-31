@@ -7,6 +7,11 @@ input_path = 'templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
 
+[templates.waybar-clock-module]
+input_path = 'templates/clock.jsonc'
+output_path = '~/.config/waybar/modules/clock.jsonc'
+post_hook = 'pkill -SIGUSR2 waybar'
+
 [templates.waybar-mpris-module]
 input_path = 'templates/mpris-colors.sh'
 output_path = '~/.config/waybar/scripts/mpris-colors.sh'
@@ -77,7 +82,7 @@ output_path = '~/.config/vesktop/themes/midnight-discord.css'
 
 [templates.kb-backlight]
 input_path = 'templates/colors.css'
-post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 20.0, "hsl" | lighten: -7.5}}'
+post_hook = 'openrgb -d "ASUS TUF Laptop Keyboard" -c {{colors.primary.default.hex_stripped | saturate: 20.0, "hsl" | lighten: -7.5}} &'
 
 [templates.fastfetch]
 input_path = 'templates/colors.css'

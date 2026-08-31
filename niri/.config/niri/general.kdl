@@ -19,8 +19,8 @@ environment {
 }
 
 cursor {
-	xcursor-theme "Breeze-Obsidian"
-	xcursor-size 16
+    xcursor-theme "BreezeX-Light"
+    xcursor-size 28
 }
 
 clipboard {
