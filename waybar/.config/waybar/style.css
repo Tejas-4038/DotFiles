@@ -36,6 +36,7 @@
 #custom-div {
 	color: @div;
 	padding: 0px 5px;
+	font-size: 16px;
 }
 
 /*----Hover----*/
@@ -44,7 +45,7 @@
 #custom-gpu:hover,
 #cpu:hover, #temperature:hover,
 #clock:hover,
-#mpris:hover, #custom-play:hover, #custom-next:hover, #custom-previous:hover,
+#custom-mpris:hover, #custom-play:hover, #custom-next:hover, #custom-previous:hover,
 #network:hover,
 #pulseaudio:hover,
 #battery:hover,
@@ -158,7 +159,7 @@ tooltip {
 	font-size: 15.4px;
 }
 
-#cava {
+#cava, #custom-cava {
     font-size: 9px;
     letter-spacing: 1px;
     color: @tertiary;

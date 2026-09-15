@@ -6,7 +6,7 @@ menu="  App Menu"
 wall="  Wallpapers"
 kill="  Force Kill"
 update="  Update System"
-power="⏼  Power Options"
+power="  Power Options"
 
 item=$(printf "$about\n$conf\n$menu\n$wall\n$kill\n$update\n$power" | rofi -dmenu -i -l 7 -p "Menu:")
 

@@ -3,9 +3,9 @@
 
 source ~/.config/waybar/scripts/mpris-colors.sh
 
-status=$(playerctl status)
+status=$(playerctl status 2> /dev/null)
 if ! [[ $status = "Playing" || $status = "Paused" ]]; then
-	exit 0
+	exit 1
 fi
 
 escape_markup() {
