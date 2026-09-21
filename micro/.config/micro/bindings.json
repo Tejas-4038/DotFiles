@@ -14,5 +14,6 @@
     "Ctrl-L": "command:lower",
     "Ctrl-U": "command:upper",
     "Ctrl-B": "ToggleMacro",
-    "Ctrl-N": "PlayMacro"
+    "Ctrl-N": "PlayMacro",
+    "Ctrl-F1": "command:togglelocal softwrap"
 }

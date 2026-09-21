@@ -1,5 +1,6 @@
 {
     "colorscheme": "matugen",
     "scrollbar": true,
-    "scrollspeed": 3
+    "scrollspeed": 3,
+    "saveundo": true
 }
