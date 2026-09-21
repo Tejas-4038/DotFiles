@@ -114,3 +114,8 @@ layer-rule {
 		}
 	}
 }
+
+layer-rule {
+    match namespace="awww-daemonoverview"
+    place-within-backdrop true
+}

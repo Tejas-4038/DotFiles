@@ -17,6 +17,7 @@ echo "
 [general]
 bars = 6
 autosens = 1
+framerate = 30
 
 [output]
 method = raw
@@ -34,3 +35,5 @@ cava -p $config_file | while read -r line; do
 		echo ""
 	fi
 done
+
+

@@ -158,7 +158,9 @@
 
     "custom/cava": {
         "format": "{}",
-        "exec": "~/.config/waybar/scripts/cava.sh"
+        "exec": "~/.config/waybar/scripts/cava.sh",
+        "return-type": "text",
+        "tooltip": false
     },
 
     "custom/play": {
