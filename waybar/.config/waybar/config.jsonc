@@ -77,6 +77,7 @@
             "com.github.th-ch.youtube-music": "YouTube Music",
             "FFPWA-01K86J2FX5J1EEXYCQ272ECWE2": "Whatsapp",
             "org.pulseaudio.pavucontrol": "Volume Control",
+            "com.saivert.pwvucontrol": "Volume Control",
             "org.gnome.Nautilus": "Files"
         }
     },
@@ -221,11 +222,11 @@
         "format-muted": "{icon}",
         "format-icons": {
             "default": ["", "", ""],
-            "default-muted": "",
-            "headphone": "󰋋",
-            "headphone-muted": "󰟎",
-            "headset": "󰋎",
-            "headset-muted": "󰋐"
+            "default-muted": ""
+            // "headphone": "󰋋",
+            // "headphone-muted": "󰟎",
+            // "headset": "󰋎",
+            // "headset-muted": "󰋐"
         },
         "on-click": "pavucontrol -t 3",
         "on-click-middle": "swayosd-client --output-volume mute-toggle",

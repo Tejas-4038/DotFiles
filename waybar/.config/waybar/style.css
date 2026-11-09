@@ -13,7 +13,7 @@
 @define-color div @surface_variant;
 /*----Waybar----*/
 #waybar {
-	background-color: alpha(@bg, 0.9);
+	background-color: alpha(@bg, 0.85);
 	/*border-radius: 10px;*/
 }
 

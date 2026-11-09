@@ -1,6 +1,6 @@
 #!/bin/bash
 
-pid=$(pgrep -f "^gpu-screen-recorder")
+pid=$(pgrep -f "^gpu-screen-recorder -w")
 time=$(date "+%d-%m-%Y_%H-%M-%S")
 path="$HOME/Videos/Screencasts/screenrecord_$time.mp4"
 
@@ -32,5 +32,5 @@ if [[ -z "$pid" ]]; then
 	gpu-screen-recorder -w "$region" -f 60 -k hevc -a "$audio" -o "$path"
 
 else
-	pkill -SIGINT -f "^gpu-screen-recorder" && notify-send "Recording Stopped"
+	kill "$pid" && notify-send "Recording Stopped"
 fi

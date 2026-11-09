@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 source ~/.config/waybar/scripts/mpris-colors.sh

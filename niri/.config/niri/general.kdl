@@ -13,6 +13,7 @@ spawn-sh-at-startup "vicinae server"
 spawn-sh-at-startup "wl-clip-persist --clipboard regular"
 spawn-sh-at-startup "gsettings set org.gnome.desktop.interface font-name 'Google Sans Flex 10.2'"
 spawn-sh-at-startup "matugen image ~/Pictures/botw/09.jpg --source-color-index 0"
+spawn-sh-at-startup "gpu-screen-recorder -r 60 -w screen -a default_output -c mp4 -f 60 -bm cbr -q 40000 -o ~/Videos/Replays"
 
 
 environment {
